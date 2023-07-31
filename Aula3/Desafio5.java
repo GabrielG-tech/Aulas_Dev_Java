@@ -6,7 +6,7 @@ public class Desafio5 {
     // Calcule com base na taxa SELIC a taxa CDI (CDI = SELIC/252) Selic = 13.75%
     public static void main(String[] args) {
 
-    double SELIC, CDI, Aplicacao, Rendimento, Montante, Tributacao;
+    double SELIC, CDI, Aplicacao, Rendimento, Montante;
     int diasUteis = 252;
     Scanner inp = new Scanner(System.in);
 

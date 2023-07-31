@@ -1,7 +1,6 @@
 package Aula3;
 
 import java.util.Scanner;
-import java.lang.Math;
 
 public class Desafio4 {
 
