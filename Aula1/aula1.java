@@ -1,18 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-package first.javaapplication;
+package Aula1;
 
 import java.util.Scanner;
-import java.lang.Math;
+// import java.lang.Math;
 
-/* @author gabriel.gsouza */
-public class FirstJavaApplication {
-
-    /**
-     * @param args the command line arguments
-     */
+public class aula1 {
     public static void main(String[] args) {
         /* String dado = "Hello World!";
         System.out.println("Padrão:" + dado);
@@ -27,7 +18,7 @@ public class FirstJavaApplication {
         Olá
         Mundo
          */
- /* byte x;
+        /* byte x;
         x = 25;
         System.out.println(x);
         
@@ -147,10 +138,6 @@ public class FirstJavaApplication {
         
         System.out.println("Soma: " + (a + b));
         
-        
-        
-        
-        
-        
+        entrada.close();     
     }
 }
