@@ -1,5 +1,9 @@
 package Aula3.Exercicios;
 
+/*
+  1) Faça um programa que solicite o nome e nota de 6 alunos. Em seguida, calcule a média da turma e parabenize apenas aqueles que ficaram acima da média da turma.
+*/
+
 public class ex1 {
     
 }

@@ -1,11 +1,11 @@
-package Aula3;
+package Desafios;
 
 import java.util.Scanner;
 import java.lang.Math;
 
 public class Desafio1 {
-
-    // Faça uma equação que informe o perímetro e a área de uma circunferencia.
+    // Faça uma equação que informe o perímetro e
+    // a área de uma circunferencia.
     public static void main(String[] args) {
         double raio, perímetro, área;
         Scanner inp = new Scanner(System.in);

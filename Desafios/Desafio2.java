@@ -1,4 +1,4 @@
-package Aula3;
+package Desafios;
 
 import java.util.Scanner;
 import java.lang.Math;
