@@ -4,14 +4,19 @@ public class Veiculo {
     private int passageiros;
     private int capacidade;
     private int kml;
-    private int autonomia;
     private String tipo;
 
+    Veiculo() {
+        passageiros = 5;
+        capacidade = 2;
+        kml = 5;
+    }
+
     // Constructor parametrizado
-    Veiculo(int p, int c, int k) {
-        passageiros = p;
-        capacidade = c;
-        kml = k;
+    Veiculo(int passageiros, int capacidade, int kml) {
+        this.passageiros = passageiros;
+        this.capacidade = capacidade;
+        this.kml = kml;
     }
 
     void setPassageiros(int p) {
@@ -29,10 +34,6 @@ public class Veiculo {
     int getCapacidade() {
         return capacidade;
     }
-
-    void setAutonomia(int a) {
-        autonomia = a;
-    };
 
     void setKml(int k) {
         kml = k;

@@ -5,7 +5,10 @@ package Aula3.Exercicios;
 */
 
 public class ex1 {
-    
+  public static void main(String[] args) {
+    System.out.println("Informe o nome do aulo 1: ");
+    // aluno1 = inp.next();
+  }
 }
 
 // Exercicios:
