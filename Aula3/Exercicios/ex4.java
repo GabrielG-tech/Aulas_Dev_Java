@@ -11,13 +11,13 @@ public class ex4 {
         Scanner input = new Scanner(System.in);
 
         System.out.print("Digite o tamanho do primeiro lado do triângulo: ");
-        double lado1 = input.nextFloat();
+        float lado1 = input.nextFloat();
 
         System.out.print("Digite o tamanho do segundo lado do triângulo: ");
-        double lado2 = input.nextFloat();
+        float lado2 = input.nextFloat();
 
         System.out.print("Digite o tamanho do terceiro lado do triângulo: ");
-        double lado3 = input.nextFloat();
+        float lado3 = input.nextFloat();
 
         if (ehTriangulo(lado1, lado2, lado3)) {
             String tipo = tipoTriangulo(lado1, lado2, lado3);
@@ -29,11 +29,11 @@ public class ex4 {
         input.close();
     }
 
-    public static boolean ehTriangulo(double a, double b, double c) {
+    public static boolean ehTriangulo(float a, float b, float c) {
         return a + b > c && a + c > b && b + c > a;
     }
 
-    public static String tipoTriangulo(double a, double b, double c) {
+    public static String tipoTriangulo(float a, float b, float c) {
         if (a == b && b == c) {
             return "Triângulo equilátero";
         } else if (a == b || a == c || b == c) {
