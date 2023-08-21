@@ -1,4 +1,4 @@
-package Aula08.Volume;
+package Volume;
 
 public class Volume {
     private double lado1, lado2, raio, altura;

@@ -1,8 +1,19 @@
-package Aula08.Biblioteca;
+package Biblioteca;
 
 public class Livro {
-    private String nomeLivro, autor, editora, prateleira;
-    private int ISBN, CDD, edicao, ano, secao;
+    private String nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao, ano, secao;
+
+    Livro(String nomeLivro, String autor, String editora, String prateleira, String ISBN, String CDD, String edicao, String ano, String secao) {
+        this.nomeLivro = nomeLivro;
+        this.autor = autor;
+        this.editora = editora;
+        this.prateleira = prateleira;
+        this.ISBN = ISBN;
+        this.CDD = CDD;
+        this.edicao = edicao;
+        this.ano = ano;
+        this.secao = secao;
+    }
 
     public void setNomeLivro(String nomeLivro) {
         this.nomeLivro = nomeLivro;
@@ -36,46 +47,43 @@ public class Livro {
         return prateleira;
     }
 
-    public void setNomeLivro(int nomeLivro) {
-        this.nomeLivro = nomeLivro;
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
 
-    public int getNomeLivro() {
-        return nomeLivro;
+    public String getISBN() {
+        return ISBN;
     }
 
-    public void setNomeLivro(int nomeLivro) {
-        this.nomeLivro = nomeLivro;
+    public void setCDD(String CDD) {
+        this.CDD = CDD;
     }
 
-    public int getNomeLivro() {
-        return nomeLivro;
+    public String getCDD() {
+        return CDD;
     }
 
-    public void setNomeLivro(int nomeLivro) {
-        this.nomeLivro = nomeLivro;
+    public void setEdicao(String edicao) {
+        this.edicao = edicao;
     }
 
-    public int getNomeLivro() {
-        return nomeLivro;
+    public String getEdicao() {
+        return edicao;
     }
 
-    public void setNomeLivro(int nomeLivro) {
-        this.nomeLivro = nomeLivro;
+    public void setAno(String ano) {
+        this.ano = ano;
     }
 
-    public int getNomeLivro() {
-        return nomeLivro;
+    public String getAno() {
+        return ano;
     }
 
-    public void setNomeLivro(int nomeLivro) {
-        this.nomeLivro = nomeLivro;
+    public void setSecao(String secao) {
+        this.secao = secao;
     }
 
-    public int getNomeLivro() {
-        return nomeLivro;
+    public String getSecao() {
+        return secao;
     }
-
-        
-    
 }
