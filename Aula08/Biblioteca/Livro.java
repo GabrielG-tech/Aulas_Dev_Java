@@ -1,7 +1,15 @@
 package Biblioteca;
 
 public class Livro {
-    private String nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao, ano, secao;
+    private String nomeLivro;
+    private String autor;
+    private String editora;
+    private String prateleira;
+    private String ISBN;
+    private String CDD;
+    private String edicao;
+    private String ano;
+    private String secao;
 
     Livro(String nomeLivro, String autor, String editora, String prateleira, String ISBN, String CDD, String edicao, String ano, String secao) {
         this.nomeLivro = nomeLivro;
