@@ -1,18 +1,19 @@
-// package Biblioteca;
+package Biblioteca;
 
-// public class Revista extends Livro {
-//     private String ISSN;
+public class Revista extends Livro {
+    private String ISSN;
 
-//     Revista(String nomeLivro, String autor, String editora, String prateleira, String ISBN, String CDD, String edicao, String ano, String secao) {
-//         super.nomeLivro = nomeLivro;
-//         super.autor = autor;
-//         super.editora = editora;
-//         super.prateleira = prateleira;
-//         super.ISBN = ISBN;
-//         super.CDD = CDD;
-//         super.edicao = edicao;
-//         super.ano = ano;
-//         super.secao = secao;
-//     }
+    Revista(String nomeLivro, String autor, String editora, String prateleira, String ISBN, String CDD, String edicao, String ano, String secao, String ISSN) {
+        super(nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao, ano, secao);
+        this.ISSN = ISSN;
+    }
     
-// }
+    public void setISSN(String ISSN) {
+        this.ISSN = ISSN;
+    }
+
+    public String getISSN() {
+        return ISSN;
+    }
+
+}
