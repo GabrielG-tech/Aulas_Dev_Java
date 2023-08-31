@@ -19,7 +19,7 @@ public class BibliotecaProg {
             // System.out.println("[3] - Procurar revista"); 
             System.out.println("[4] - Listar livros");
             // System.out.println("[4] - Listar revista");
-            System.out.println("[5] - Quantidade de livros cadastrada/livre"); // x livros cadastrados | y livre
+            System.out.println("[5] - Quantidade cadastrada/livre"); // x livros cadastrados | y revista cadastrados | z livre
             System.out.println("[6] - Excluir último elemento da lista de livros");
             System.out.println("[7] - Ordenar livros cadastrados");
             System.out.println("[8] - Sair");
@@ -146,6 +146,7 @@ public class BibliotecaProg {
                         System.out.println("=".repeat(124));
                         System.out.printf("| %-11s | %-11s | %-11s | %-11s | %-11s | %-11s | %-10s | %-10s | %-10s |", "Nome",
                                 "Autor", "ISBN", "Ano", "Editora", "Prateleira", "Secao", "CDD", "Edicao");
+                        System.out.println();
                         for (int i = 0; i < NumCadastroLivro; i++) {
                             System.out.printf("| %-11s | %-11s | %-11s | %-11s | %-11s | %-11s | %-10s | %-10s | %-10s |",
                                     livros[i].getNomeLivro(), livros[i].getAutor(), livros[i].getISBN(),
@@ -187,17 +188,17 @@ public class BibliotecaProg {
                     break;
 
                 case 8: // Encerrar programa | Sair
-                    System.out.println("Programa encerrado");
-                    escolha = 8;
-                    break;
-*/
-                case 9:                    
                     livros[NumCadastroLivro] = new Livro("nomeLivro", "autor", "editora", "prateleira", "ISBN", "CDD", "edicao", "ano", "secao");
                     NumCadastroLivro++;
                     System.out.println("Programa encerrado");
                     break;
+
+                case 9:                    
+                    System.out.println("Programa encerrado");
+                    escolha = 9;
+                    break;
             }
-        } while (escolha != 8);
+        } while (escolha != 9);
 
         input.close();
     }
