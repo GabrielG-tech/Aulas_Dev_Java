@@ -3,7 +3,7 @@ package Biblioteca;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class FirstJavaApplication {
+public class BibliotecaProg {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Livro[] livros = new Livro[1000];
