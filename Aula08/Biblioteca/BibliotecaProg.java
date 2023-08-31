@@ -6,19 +6,21 @@ import java.util.Scanner;
 public class BibliotecaProg {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        Livro[] livros = new Livro[2];
+        Livro[] livros = new Livro[1000];
         Revista[] revistas = new Revista[1000];
-        int escolha = 0, NumCadastro = 0;
+        int escolha = 0, NumCadastroLivro = 0, NumCadastroRevista = 0;
         do {
-            System.out.println("\n=======================================");
-            System.out.println("|    Sistema de Cadastro de Livros    |");
-            System.out.println("=======================================\n");
+            System.out.println("\n=========================================");
+            System.out.println("|     Sistema de Cadastro de Livros     |");
+            System.out.println("=========================================\n");
             System.out.println("[1] - Cadastrar livro"); // de 0 a 999
             System.out.println("[2] - Cadastrar revista"); // por Herança
             System.out.println("[3] - Procurar livro"); // por palavra chave
+            // System.out.println("[3] - Procurar revista"); 
             System.out.println("[4] - Listar livros");
-            System.out.println("[5] - Quantidade cadastrada/livre"); // x livros cadastrados | y livre
-            System.out.println("[6] - Excluir último elemento da lista");
+            // System.out.println("[4] - Listar revista");
+            System.out.println("[5] - Quantidade de livros cadastrada/livre"); // x livros cadastrados | y livre
+            System.out.println("[6] - Excluir último elemento da lista de livros");
             System.out.println("[7] - Ordenar livros cadastrados");
             System.out.println("[8] - Sair");
             System.out.println("\n=======================================\n");
@@ -78,22 +80,59 @@ public class BibliotecaProg {
                         secao = input.next();
                         input.nextLine();
 
-                        livros[NumCadastro] = new Livro(nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao, ano,
-                                secao);
+                        livros[NumCadastroLivro] = new Livro(nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao, ano, secao);
 
-                        NumCadastro++;
+                        NumCadastroLivro++;
                         break;
                     // } catch () {
                     //     System.out.print("Erro: Lista cheia. ");
                     //     break;
                     // }
+                
 
                 case 2: // Cadastrar revista
-                    // String ISSN;
-                    // System.out.print("Digite o ISSN: ");
-                    // ISSN = input.next();
-                    // input.nextLine();
+                    // String nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao, ano, secao, ISSN;
+                    System.out.print("Digite o nome da revista: ");
+                    nomeLivro = input.next();
+                    input.nextLine();
 
+                    System.out.print("Digite o nome do autor: ");
+                    autor = input.next();
+                    input.nextLine();
+
+                    System.out.print("Digite o nome da editora: ");
+                    editora = input.next();
+                    input.nextLine();
+
+                    System.out.print("Digite a prateleira: ");
+                    prateleira = input.next();
+                    input.nextLine();
+
+                    ISBN = "-";
+
+                    System.out.print("Digite o CDD: ");
+                    CDD = input.next();
+                    input.nextLine();
+
+                    System.out.print("Digite a edicao: ");
+                    edicao = input.next();
+                    input.nextLine();
+
+                    System.out.print("Digite o ano de lançamento: ");
+                    ano = input.next();
+                    input.nextLine();
+
+                    System.out.print("Digite a secao: ");
+                    secao = input.next();
+                    input.nextLine();
+
+                    System.out.print("Digite o ISSN: ");
+                    String ISSN = input.next();
+                    input.nextLine();
+
+                    revistas[NumCadastroRevista] = new Revista(nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao, ano, secao, ISSN);
+
+                    NumCadastroRevista++;
                     break;
 
                 case 3: // Procurar livro
@@ -101,13 +140,13 @@ public class BibliotecaProg {
                     break;
 
                 case 4: // Listar livros
-                    if (NumCadastro == 0) {
+                    if (NumCadastroLivro == 0) {
                         System.out.println("Nenhum livro cadastrado ainda.");
                     } else {
                         System.out.println("=".repeat(124));
                         System.out.printf("| %-11s | %-11s | %-11s | %-11s | %-11s | %-11s | %-10s | %-10s | %-10s |", "Nome",
                                 "Autor", "ISBN", "Ano", "Editora", "Prateleira", "Secao", "CDD", "Edicao");
-                        for (int i = 0; i < NumCadastro; i++) {
+                        for (int i = 0; i < NumCadastroLivro; i++) {
                             System.out.printf("| %-11s | %-11s | %-11s | %-11s | %-11s | %-11s | %-10s | %-10s | %-10s |",
                                     livros[i].getNomeLivro(), livros[i].getAutor(), livros[i].getISBN(),
                                     livros[i].getAno(), livros[i].getEditora(), livros[i].getPrateleira(),
@@ -121,28 +160,28 @@ public class BibliotecaProg {
 
                 case 5: // Quantidade cadastrada/livre
                     System.out.println("\n================================");
-                    System.out.printf("%-30s", "| Quantidade usada: " + NumCadastro);
+                    System.out.printf("%-30s", "| Quantidade usada: " + NumCadastroLivro);
                     System.out.println(" |");
-                    System.out.printf("%-30s", "| Quantidade livre: " + (999 - NumCadastro));
+                    System.out.printf("%-30s", "| Quantidade livre: " + (999 - NumCadastroLivro));
                     System.out.println(" |");
                     System.out.println("================================\n");
                     break;
 
                 case 6: // Excluir último elemento da lista
-                    for (int i = 0; i < NumCadastro; i++) {
-                        if (NumCadastro > 0) {
-                            NumCadastro--;
-                            livros[NumCadastro] = null;
+                    for (int i = 0; i < NumCadastroLivro; i++) {
+                        if (NumCadastroLivro > 0) {
+                            NumCadastroLivro--;
+                            livros[NumCadastroLivro] = null;
                         }
                     }
                     System.out.println("Último item excluido com sucesso!");
                     break;
 
                 case 7: // Ordenar livros cadastrados
-                    // for (int i = 0; i < NumCadastro; i++) {
+                    // for (int i = 0; i < NumCadastroLivro; i++) {
                     // livros[i].sort(getNomeLivro());
                     // }
-                    // for (int i = 0; i < NumCadastro; i++) {
+                    // for (int i = 0; i < NumCadastroLivro; i++) {
                     // System.out.println("- " + livros[i].getNomeLivro());
                     // }
                     break;
@@ -150,6 +189,12 @@ public class BibliotecaProg {
                 case 8: // Encerrar programa | Sair
                     System.out.println("Programa encerrado");
                     escolha = 8;
+                    break;
+*/
+                case 9:                    
+                    livros[NumCadastroLivro] = new Livro("nomeLivro", "autor", "editora", "prateleira", "ISBN", "CDD", "edicao", "ano", "secao");
+                    NumCadastroLivro++;
+                    System.out.println("Programa encerrado");
                     break;
             }
         } while (escolha != 8);
