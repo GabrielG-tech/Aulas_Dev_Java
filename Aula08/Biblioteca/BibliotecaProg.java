@@ -38,13 +38,6 @@ public class BibliotecaProg {
             switch (escolha) {
                 case 1: // Cadastrar livro
                     // try {
-                        // ArrayList de teste
-                        // int listaTamanho = 1000;
-                        // for (int i = 0; i < listaTamanho; i++) {
-                        //     livros[livros.length] = new Livro("Livro", "Autor", "Editora", "Prateleira", "ISBN",
-                        //     "CDD", "Edição", "2003", "3");
-                        // }
-
                         String nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao, ano, secao;
                         System.out.print("Digite o nome do livro: ");
                         nomeLivro = input.next();

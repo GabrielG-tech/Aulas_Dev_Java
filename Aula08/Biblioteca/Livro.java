@@ -1,6 +1,6 @@
 package Biblioteca;
 
-public class Livro {
+public class Livro { // Objeto pai
     private String nomeLivro;
     private String autor;
     private String editora;

@@ -1,6 +1,6 @@
 package Biblioteca;
 
-public class Revista extends Livro {
+public class Revista extends Livro { // Objeto filho
     private String ISSN;
 
     Revista(String nomeLivro, String autor, String editora, String prateleira, String ISBN, String CDD, String edicao, String ano, String secao, String ISSN) {
