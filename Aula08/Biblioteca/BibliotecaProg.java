@@ -2,7 +2,7 @@ package Biblioteca;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-// TESTE GIT VSCODE
+
 public class BibliotecaProg {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -11,7 +11,7 @@ public class BibliotecaProg {
         int escolha = 0, escolha2 = 0, NumCadastroLivro = 0, NumCadastroRevista = 0;
         do {
             System.out.println("=".repeat(42));
-            System.out.printf("| %-38s |\n","     Sistema de Cadastro de Livros");
+            System.out.printf("| %-38s |\n", "     Sistema de Cadastro de Livros");
             System.out.println("=".repeat(42));
             System.out.println("[1]  - Cadastrar livro/revista");
             System.out.println("[2]  - Procurar livro/revista");
@@ -19,7 +19,8 @@ public class BibliotecaProg {
             System.out.println("[4]  - Quantidade cadastrada/livre");
             System.out.println("[5]  - Excluir último elemento da lista");
             System.out.println("[6]  - Ordenar livros cadastrados");
-            System.out.println("[7]  - Sair");
+            System.out.println("[7]  - Ordenar revistas cadastradas");
+            System.out.println("[8]  - Sair");
             System.out.println("[11] - Criar Livro Padrão");
             System.out.println("[12] - Criar Revista Padrão");
             System.out.println("=".repeat(42));
@@ -87,7 +88,8 @@ public class BibliotecaProg {
                             System.out.print("Digite o ISBN: ");
                             ISBN = input.next();
                             input.nextLine();
-                            livros[NumCadastroLivro] = new Livro(nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao,
+                            livros[NumCadastroLivro] = new Livro(nomeLivro, autor, editora, prateleira, ISBN, CDD,
+                                    edicao,
                                     ano, secao);
                             NumCadastroLivro++;
                             break;
@@ -183,7 +185,7 @@ public class BibliotecaProg {
                 case 3: // Listar
                     System.out.println();
                     System.out.println("=".repeat(124));
-                    
+
                     System.out.println("    [1] - Listar livro");
                     System.out.println("    [2] - Listar revista");
                     try {
@@ -199,7 +201,8 @@ public class BibliotecaProg {
                             System.out.println("Nenhum livro cadastrado ainda.");
                         } else {
                             System.out.println("=".repeat(124));
-                            System.out.printf("| %-11s | %-11s | %-11s | %-11s | %-11s | %-11s | %-10s | %-10s | %-10s |",
+                            System.out.printf(
+                                    "| %-11s | %-11s | %-11s | %-11s | %-11s | %-11s | %-10s | %-10s | %-10s |",
                                     "Nome",
                                     "Autor", "ISBN", "Ano", "Editora", "Prateleira", "Secao", "CDD", "Edicao");
                             System.out.print("\n|" + "-".repeat(122) + "|");
@@ -210,18 +213,19 @@ public class BibliotecaProg {
                                         livros[i].getNomeLivro(), livros[i].getAutor(), livros[i].getISBN(),
                                         livros[i].getAno(), livros[i].getEditora(), livros[i].getPrateleira(),
                                         livros[i].getSecao(), livros[i].getCDD(), livros[i].getEdicao());
-    
+
                             }
                             System.out.println();
                             System.out.println("=".repeat(124));
                         }
-                        break;    
+                        break;
                     } else if (escolha2 == 2) { // Listar revista
                         if (NumCadastroRevista == 0) {
                             System.out.println("Nenhuma revista cadastrada ainda.");
                         } else {
                             System.out.println("=".repeat(124));
-                            System.out.printf("| %-11s | %-11s | %-11s | %-11s | %-11s | %-11s | %-10s | %-10s | %-10s |",
+                            System.out.printf(
+                                    "| %-11s | %-11s | %-11s | %-11s | %-11s | %-11s | %-10s | %-10s | %-10s |",
                                     "Nome",
                                     "Autor", "ISSN", "Ano", "Editora", "Prateleira", "Secao", "CDD", "Edicao");
                             System.out.print("\n|" + "-".repeat(122) + "|");
@@ -232,7 +236,7 @@ public class BibliotecaProg {
                                         revistas[i].getNomeLivro(), revistas[i].getAutor(), revistas[i].getISSN(),
                                         revistas[i].getAno(), revistas[i].getEditora(), revistas[i].getPrateleira(),
                                         revistas[i].getSecao(), revistas[i].getCDD(), revistas[i].getEdicao());
-    
+
                             }
                             System.out.println();
                             System.out.println("=".repeat(124));
@@ -262,24 +266,57 @@ public class BibliotecaProg {
                     break;
 
                 case 6: // Ordenar livros cadastrados
-                    System.out.println("Ordenar livros cadastrados em construção... (aguarde proximas versoes)");
-                    // for (int i = 0; i < NumCadastroLivro; i++) {
-                    // livros[i].sort(getNomeLivro());
-                    // }
-                    // for (int i = 0; i < NumCadastroLivro; i++) {
-                    // System.out.println("- " + livros[i].getNomeLivro());
-                    // }
+                    for (int i = 0; i < (NumCadastroLivro - 1); i++) {
+                        for (int j = 0; j < (NumCadastroLivro - 1); j++) {
+                            Livro aux = new Livro();
+                            Livro aux1 = new Livro();
+                            aux = livros[i];
+                            aux1 = livros[i+1];
+                            if (aux.getNomeLivro().toLowerCase().compareTo(aux1.getNomeLivro().toLowerCase()) > 0) {
+                                livros[i] = aux1;
+                                livros[i+1] = aux;
+                            }
+                        }
+                    }
+                    for (int i = 0; i < NumCadastroLivro; i++) {
+                        System.out.println("- " + livros[i].getNomeLivro());
+                    }
                     break;
 
-                case 7: // Encerrar programa | Sair
+                    case 7: // Ordenar revistas cadastradas
+                    for (int i = 0; i < (NumCadastroRevista - 1); i++) {
+                        for (int j = 0; j < (NumCadastroRevista - 1); j++) {
+                            Revista aux = new Revista();
+                            Revista aux1 = new Revista();
+                            aux = revistas[i];
+                            aux1 = revistas[i+1];
+                            if (aux.getNomeLivro().toLowerCase().compareTo(aux1.getNomeLivro().toLowerCase()) > 0) {
+                                revistas[i] = aux1;
+                                revistas[i+1] = aux;
+                            }
+                        }
+                    }
+                    for (int i = 0; i < NumCadastroLivro; i++) {
+                        System.out.println("- " + livros[i].getNomeLivro());
+                    }
+                    break;
+
+                case 8: // Encerrar programa | Sair
                     System.out.println("Programa encerrado");
-                    escolha = 7;
+                    escolha = 8;
                     break;
 
                 case 11: // Cria livro padrão
                     try {
-                        livros[NumCadastroLivro] = new Livro("nomeLivro", "autor", "editora", "prateleira", "ISBN", "CDD",
+                        if (NumCadastroRevista % 2 == 0) {
+                            livros[NumCadastroLivro] = new Livro("nomeLivro", "autor", "editora", "prateleira", "ISBN",
+                                "CDD",
                                 "edicao", "ano", "secao");
+                            } else {
+                                livros[NumCadastroLivro] = new Livro("nomeLivro2", "autor2", "editora2", "prateleira2", "ISBN2",
+                                "CDD2",
+                                "edicao2", "ano2", "secao2");
+                            }
                         NumCadastroLivro++;
                         break;
                     } catch (ArrayIndexOutOfBoundsException e) {
@@ -289,17 +326,24 @@ public class BibliotecaProg {
 
                 case 12: // Cria revista padrão
                     try {
-                        revistas[NumCadastroRevista] = new Revista("nomeRevista", "autor", "editora", "prateleira", "ISBN",
+                        if (NumCadastroRevista % 2 == 0) {
+                        revistas[NumCadastroRevista] = new Revista("nomeRevista", "autor", "editora", "prateleira",
+                                "----",
                                 "CDD", "edicao", "ano", "secao", "ISSN");
+                            } else {
+                                revistas[NumCadastroRevista] = new Revista("nomeRevista2", "autor2", "editora2", "prateleira2",
+                                "----",
+                                "CDD2", "edicao2", "ano2", "secao2", "ISSN2");
+                            }
                         NumCadastroRevista++;
                         break;
                     } catch (ArrayIndexOutOfBoundsException e) {
                         System.out.print("Erro: Lista cheia. ");
-                        escolha = 7;
+                        escolha = 8;
                         break;
                     }
             }
-        } while (escolha != 7);
+        } while (escolha != 8);
 
         input.close();
     }

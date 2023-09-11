@@ -11,7 +11,9 @@ public class Livro { // Objeto pai
     private String ano;
     private String secao;
 
-    Livro(String nomeLivro, String autor, String editora, String prateleira, String ISBN, String CDD, String edicao, String ano, String secao) {
+    public Livro() {} 
+
+    public Livro(String nomeLivro, String autor, String editora, String prateleira, String ISBN, String CDD, String edicao, String ano, String secao) {
         this.nomeLivro = nomeLivro;
         this.autor = autor;
         this.editora = editora;
