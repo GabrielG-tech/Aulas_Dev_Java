@@ -1,3 +1,4 @@
+package Aula10;
 public class Interface implements Regra {
     @Override
     public void metodo1() {

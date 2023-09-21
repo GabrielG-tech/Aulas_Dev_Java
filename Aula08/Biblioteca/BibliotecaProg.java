@@ -1,5 +1,7 @@
 package Biblioteca;
 
+import java.io.FileWriter;
+import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -72,8 +74,7 @@ public class BibliotecaProg {
                     System.out.print("Digite o ISSN: ");
                     String ISSN = input.next();
                     input.nextLine();
-                    revistas[NumCadastroRevista] = new Revista(nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao,
-                            ano, secao, ISSN);
+                    revistas[NumCadastroRevista] = new Revista(nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao, ano, secao, ISSN);
                     NumCadastroRevista++;
                 }
             } catch (ArrayIndexOutOfBoundsException e) {
@@ -247,11 +248,10 @@ public class BibliotecaProg {
      * }
      */
 
-    System.out.println("# "+"=".repeat(100)+" #");System.out.println("| "+
-
-    barraQuantidade(100) + " |");
-        System.out.println("# " + "=".repeat(100) + " #");
-    }
+    // System.out.println("# "+"=".repeat(100)+" #");
+    // System.out.println("| "+ barraQuantidade(100) + " |");
+    // System.out.println("# " + "=".repeat(100) + " #");
+    // }
 
     private static void ordenar() {
         if (escolha2 == 1) { // Ordenar livro
@@ -306,6 +306,47 @@ public class BibliotecaProg {
                 }
             }
             System.out.println("Último item excluido de revista com sucesso!");
+        }
+    }
+
+    public static void salvarArquivo() {
+        try {
+            FileWriter arquivo = new FileWriter(new File("Livros", "livro.txt"));
+            int k;
+
+            for (k = 0; k < NumCadastroLivro; k++) {
+                arquivo.write(livros[k].getNomeLivro() + ", " + 
+                              livros[k].getAutor() + ", " + 
+                              livros[k].getEditora() + ", " + 
+                              livros[k].getPrateleira() + ", " + 
+                              livros[k].getISBN() + ", " + 
+                              livros[k].getCDD() + ", " + 
+                              livros[k].getEdicao() + ", " + 
+                              livros[k].getAno() + ", " + 
+                              livros[k].getSecao() + ", " + 
+                ",\n");
+            }
+            arquivo.close();
+            
+            FileWriter arquivo1 = new FileWriter(new File("Revistas", "revista.txt"));
+            
+            for (k = 0; k < NumCadastroRevista; k++) {
+                //nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao, ano, secao, ISSN
+                arquivo.write(revistas[k].getNomeLivro() + ", " + 
+                              revistas[k].getAutor() + ", " + 
+                              revistas[k].getEditora() + ", " + 
+                              revistas[k].getPrateleira() + ", " + 
+                              revistas[k].getISBN() + ", " + 
+                              revistas[k].getCDD() + ", " + 
+                              revistas[k].getEdicao() + ", " + 
+                              revistas[k].getAno() + ", " + 
+                              revistas[k].getSecao() + ", " + 
+                              revistas[k].getISSN() + ", " + 
+                ",\n");
+            }
+            arquivo.close();   
+        } catch (Throwable e) {
+            System.out.println("Ocorreu um erro ao tentar salvar o arquivo contate o suporte. Erro: " + e);
         }
     }
 
