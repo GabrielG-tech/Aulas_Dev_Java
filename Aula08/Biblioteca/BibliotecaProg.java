@@ -332,7 +332,7 @@ public class BibliotecaProg {
             
             for (k = 0; k < NumCadastroRevista; k++) {
                 //nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao, ano, secao, ISSN
-                arquivo.write(revistas[k].getNomeLivro() + ", " + 
+                arquivo1.write(revistas[k].getNomeLivro() + ", " + 
                               revistas[k].getAutor() + ", " + 
                               revistas[k].getEditora() + ", " + 
                               revistas[k].getPrateleira() + ", " + 
@@ -344,16 +344,44 @@ public class BibliotecaProg {
                               revistas[k].getISSN() + ", " + 
                 ",\n");
             }
-            arquivo.close();   
+            arquivo1.close();   
         } catch (Throwable e) {
             System.out.println("Ocorreu um erro ao tentar salvar o arquivo contate o suporte. Erro: " + e);
         }
     }
 
+    public static void carregarArquivo() {
+        try {
+            String str;
+            BufferedReader reader, reader1;
+
+            reader = new BufferedReader(new FileReader(new File("Aula08\\Biblioteca\\Livros\\livro.txt")));
+            while ((str = reader.readLine()) != null) {
+                String[] arrOfStr = str.split(",");
+                livros[NumCadastroLivro] = new Livro(arrOfStr[0], arrOfStr[1], arrOfStr[2], arrOfStr[3], arrOfStr[4], arrOfStr[5], arrOfStr[6], arrOfStr[7], arrOfStr[8]);
+                NumCadastroLivro++;
+            }
+            reader.close();
+
+            reader1 = new BufferedReader(new FileReader(new File("Aula08\\Biblioteca\\Revistas\\revista.txt")));
+            while ((str = reader1.readLine()) != null) {
+                String[] arrOfStr = str.split(",");
+                revistas[NumCadastroRevista] = new Revista(arrOfStr[0], arrOfStr[1], arrOfStr[2], arrOfStr[3], arrOfStr[4], arrOfStr[5], arrOfStr[6], arrOfStr[7], arrOfStr[8], arrOfStr[9]);
+                NumCadastroRevista++;
+            }
+            reader1.close();
+            
+        } catch (Throwable e) {
+            System.out.println("Ocorreu um erro ao tentar carregar o arquivo contate o suporte. Erro: " + e);
+        }
+    }
+
     public static void main(String[] args) {
+        carregarArquivo();
+
         do {
             System.out.println("=".repeat(42));
-            System.out.printf("| %-38s |\n", "     Sistema de Cadastro de Livros");
+            System.out.printf("| %-38s |\n", "     Sistema de Cadastro de revistas");
             System.out.println("=".repeat(42));
             System.out.println("[1]  - Cadastrar livro/revista");
             System.out.println("[2]  - Procurar livro/revista");
@@ -465,5 +493,6 @@ public class BibliotecaProg {
             }
         } while (escolha != 7);
         input.close();
+        salvarArquivo();
     }
 }
