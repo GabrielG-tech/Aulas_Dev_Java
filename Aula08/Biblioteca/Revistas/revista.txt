@@ -1,0 +1,6 @@
+Nome | Autor | Editora | Prateleira | ISBN | CDD | Edicao | Ano | Secao | ISSN
+nomeRevista, autor, editora, prateleira, ----, CDD, edicao, ano, secao, ISSN
+nomeRevista2, autor2, editora2, prateleira2, ----, CDD2, edicao2, ano2, secao2, ISSN2
+nomeRevista, autor, editora, prateleira, ----, CDD, edicao, ano, secao, ISSN
+nomeRevista2, autor2, editora2, prateleira2, ----, CDD2, edicao2, ano2, secao2, ISSN2
+nomeRevista, autor, editora, prateleira, ----, CDD, edicao, ano, secao, ISSN

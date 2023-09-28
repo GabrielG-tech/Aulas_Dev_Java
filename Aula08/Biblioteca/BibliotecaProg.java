@@ -225,33 +225,36 @@ public class BibliotecaProg {
         return barra;
     }
 
-    /*
-     * System.out.println("x " + "=".repeat(200) + " x");
-     * System.out.println("| " + placeMemoryGraph(200) + " |");
-     * System.out.println("| " + placeMemoryGraph(400) + " |");
-     * System.out.println("| " + placeMemoryGraph(600) + " |");
-     * System.out.println("| " + placeMemoryGraph(800) + " |");
-     * System.out.println("| " + placeMemoryGraph(1000) + " |");
-     * System.out.println("x " + "=".repeat(200) + " x");
-     * 
-     * public static String placeMemoryGraph(int limit) {
-     * String a = "";
-     * for (int i = (limit - 200); i < limit; i++) {
-     * if (i < listaDeLivros.size()) {
-     * a += "|";
-     * } else {
-     * a += " ";
-     * }
-     * }
-     * 
-     * return a;
-     * }
-     */
+    //public static String barra() {
 
-    // System.out.println("# "+"=".repeat(100)+" #");
-    // System.out.println("| "+ barraQuantidade(100) + " |");
-    // System.out.println("# " + "=".repeat(100) + " #");
-    // }
+        /*
+        * System.out.println("x " + "=".repeat(200) + " x");
+        * System.out.println("| " + placeMemoryGraph(200) + " |");
+        * System.out.println("| " + placeMemoryGraph(400) + " |");
+        * System.out.println("| " + placeMemoryGraph(600) + " |");
+        * System.out.println("| " + placeMemoryGraph(800) + " |");
+        * System.out.println("| " + placeMemoryGraph(1000) + " |");
+        * System.out.println("x " + "=".repeat(200) + " x");
+        * 
+        * public static String placeMemoryGraph(int limit) {
+        * String a = "";
+        * for (int i = (limit - 200); i < limit; i++) {
+        * if (i < listaDeLivros.size()) {
+        * a += "|";
+        * } else {
+        * a += " ";
+        * }
+        * }
+        * 
+        * return a;
+        * }
+        */
+
+        // System.out.println("# "+"=".repeat(100)+" #");
+        // System.out.println("| "+ barraQuantidade(100) + " |");
+        // System.out.println("# " + "=".repeat(100) + " #");
+        // }
+    //}
 
     private static void ordenar() {
         if (escolha2 == 1) { // Ordenar livro
@@ -311,11 +314,12 @@ public class BibliotecaProg {
 
     public static void salvarArquivo() {
         try {
-            FileWriter arquivo = new FileWriter(new File("Livros", "livro.txt"));
+            FileWriter arquivoLivro = new FileWriter(new File("Aula08\\Biblioteca\\Livros", "livro.txt"));
+            arquivoLivro.write("Nome   |   Autor   |   Editora   | Prateleira |  ISBN  |  CDD  | Edicao |  Ano  | Secao\n" + "-".repeat(94));
             int k;
 
             for (k = 0; k < NumCadastroLivro; k++) {
-                arquivo.write(livros[k].getNomeLivro() + ", " + 
+                arquivoLivro.write(livros[k].getNomeLivro() + ", " + 
                               livros[k].getAutor() + ", " + 
                               livros[k].getEditora() + ", " + 
                               livros[k].getPrateleira() + ", " + 
@@ -323,30 +327,28 @@ public class BibliotecaProg {
                               livros[k].getCDD() + ", " + 
                               livros[k].getEdicao() + ", " + 
                               livros[k].getAno() + ", " + 
-                              livros[k].getSecao() + ", " + 
-                ",\n");
+                              livros[k].getSecao() + "\n");
             }
-            arquivo.close();
+            arquivoLivro.close();
             
-            FileWriter arquivo1 = new FileWriter(new File("Revistas", "revista.txt"));
+            FileWriter arquivoRevista = new FileWriter(new File("Aula08\\Biblioteca\\Revistas", "revista.txt"));
+            arquivoRevista.write("Nome | Autor | Editora | Prateleira | ISBN | CDD | Edicao | Ano | Secao | ISSN\n");
             
             for (k = 0; k < NumCadastroRevista; k++) {
-                //nomeLivro, autor, editora, prateleira, ISBN, CDD, edicao, ano, secao, ISSN
-                arquivo1.write(revistas[k].getNomeLivro() + ", " + 
-                              revistas[k].getAutor() + ", " + 
-                              revistas[k].getEditora() + ", " + 
-                              revistas[k].getPrateleira() + ", " + 
-                              revistas[k].getISBN() + ", " + 
-                              revistas[k].getCDD() + ", " + 
-                              revistas[k].getEdicao() + ", " + 
-                              revistas[k].getAno() + ", " + 
-                              revistas[k].getSecao() + ", " + 
-                              revistas[k].getISSN() + ", " + 
-                ",\n");
+                arquivoRevista.write(revistas[k].getNomeLivro() + ", " + 
+                               revistas[k].getAutor() + ", " + 
+                               revistas[k].getEditora() + ", " + 
+                               revistas[k].getPrateleira() + ", " + 
+                               revistas[k].getISBN() + ", " + 
+                               revistas[k].getCDD() + ", " + 
+                               revistas[k].getEdicao() + ", " + 
+                               revistas[k].getAno() + ", " + 
+                               revistas[k].getSecao() + ", " + 
+                               revistas[k].getISSN() + "\n");
             }
-            arquivo1.close();   
+            arquivoRevista.close();   
         } catch (Throwable e) {
-            System.out.println("Ocorreu um erro ao tentar salvar o arquivo contate o suporte. Erro: " + e);
+            System.out.println("Ocorreu um erro ao tentar salvar o arquivo contate o suporte. Erro: " + e.toString());
         }
     }
 
@@ -372,7 +374,7 @@ public class BibliotecaProg {
             reader1.close();
             
         } catch (Throwable e) {
-            System.out.println("Ocorreu um erro ao tentar carregar o arquivo contate o suporte. Erro: " + e);
+            System.out.println("Ocorreu um erro ao tentar carregar o arquivo contate o suporte. Erro: " + e.toString());
         }
     }
 
@@ -380,9 +382,9 @@ public class BibliotecaProg {
         carregarArquivo();
 
         do {
-            System.out.println("=".repeat(42));
+            System.out.println("+" + "=".repeat(40) + "+");
             System.out.printf("| %-38s |\n", "     Sistema de Cadastro de revistas");
-            System.out.println("=".repeat(42));
+            System.out.println("+" + "=".repeat(40) + "+");
             System.out.println("[1]  - Cadastrar livro/revista");
             System.out.println("[2]  - Procurar livro/revista");
             System.out.println("[3]  - Listar livros/revistas");
