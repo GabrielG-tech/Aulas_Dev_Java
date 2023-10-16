@@ -4,10 +4,10 @@ import javax.swing.*;
 import  java.awt.*;
 import  java.awt.event.ActionEvent;
 import  java.awt.event.ActionListener;
-import java.io.IOException;
 
 public class Main { // CALCULADORA BÁSICA
     public static void main(String[] args) {
+        Calculadora calculadora = new Calculadora();
 
         JFrame frame = new JFrame("Calculadora");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,23 +51,22 @@ public class Main { // CALCULADORA BÁSICA
 
             button.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    double num1, num2, result = 0.0;
-
                     try {
-                        num1 = Double.parseDouble(inputField1.getText());
-                        num2 = Double.parseDouble(inputField2.getText());
+                        double num1 = Double.parseDouble(inputField1.getText());
+                        double num2 = Double.parseDouble(inputField2.getText());
+                        double result = 0;
 
                         if (label.equals("Somar")) {
-                            result = num1 + num2;
+                            result = calculadora.somar(num1, num2);
                         } else if (label.equals("Subtrair")) {
-                            result = num1 - num2;
+                            result = calculadora.subtrair(num1, num2);
                         } else if (label.equals("Multiplicar")) {
-                            result = num1 * num2;
+                            result = calculadora.multiplicar(num1, num2);
                         } else if (label.equals("Dividir")) {
                             if (num2 != 0) {
-                                result = num1 / num2;
+                                result = calculadora.dividir(num1, num2);
                             } else {
-                                outputField.setText("Divisão por zero");
+                                outputField.setText("Erro: Divisão por zero");
                                 return;
                             }
                         }
