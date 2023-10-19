@@ -14,8 +14,10 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
             // Crie uma série de dados XY para a função f(x) = x
             XYSeries series = new XYSeries("f(x) = x");
-            for (double x = -10; x <= 10; x += 0.1) {
-                series.add(x, x);
+            for (double x = 3; x <= 10; x += 0.1) {
+                double y;
+                y = Math.tan(6); // Math.pow((x - 2), 2) + Math.pow((y - 2), 2) = 1 -> circulo
+                series.add(x, y);
             }
 
             // Crie um conjunto de dados com a série XY
