@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Aula03.2:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ce0f730-05b6-4069-b4e7-c37e946339a6" name="Changes" comment="" />
+    <list default="true" id="8ce0f730-05b6-4069-b4e7-c37e946339a6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Aula03.1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula03.1/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,10 +35,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/gabriel.gsouza/Downloads/jfreechart-1.0.19/jfreechart-1.0.19/lib/swtgraphics2d.jar",
-    "project.structure.last.edited": "Libraries",
+    "last_opened_file_path": "C:/Users/gabriel.gsouza/Documents/Dev Java/Java II/Aula03.2",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

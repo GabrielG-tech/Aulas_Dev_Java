@@ -13,10 +13,10 @@ public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             // Crie uma série de dados XY para a função f(x) = x
-            XYSeries series = new XYSeries("f(x) = x");
-            for (double x = 3; x <= 10; x += 0.1) {
+            XYSeries series = new XYSeries("f(x) = -f(x)");
+            for (double x = 1; x <= 10; x += 0.1) {
                 double y;
-                y = Math.tan(6); // Math.pow((x - 2), 2) + Math.pow((y - 2), 2) = 1 -> circulo
+                y = Math.sin(x); // Math.pow((x - 2), 2) + Math.pow((y - 2), 2) = 1 -> circulo
                 series.add(x, y);
             }
 
@@ -25,7 +25,7 @@ public class Main {
 
             // Crie o gráfico
             JFreeChart chart = ChartFactory.createXYLineChart(
-                    "Gráfico da Função f(x) = x", // Título
+                    "Gráfico da Função f(x) = -f(x)", // Título
                     "x", // Rótulo do eixo X
                     "y", // Rótulo do eixo Y
                     dataset, // Conjunto de dados
