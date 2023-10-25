@@ -16,7 +16,5 @@ public class Calculadora {
         return num1 * num2;
     }
 
-    public double dividir(double num1, double num2) {
-        return num1 / num2;
-    }
+    //public double escalar(double num, double escalar) { return num * escalar; }
 }
