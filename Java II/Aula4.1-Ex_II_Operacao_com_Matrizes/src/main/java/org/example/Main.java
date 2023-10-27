@@ -119,24 +119,55 @@ public class Main {
             button.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        double A11 = Double.parseDouble(inputA11.getText());
-                        double A21 = Double.parseDouble(inputA21.getText());
-                        double A12 = Double.parseDouble(inputA12.getText());
-                        double A22 = Double.parseDouble(inputA22.getText());
+                        int A11 = Integer.parseInt(inputA11.getText());
+                        int A21 = Integer.parseInt(inputA21.getText());
+                        int A12 = Integer.parseInt(inputA12.getText());
+                        int A22 = Integer.parseInt(inputA22.getText());
 
-                        double Escalar = inputEscalar.getText().isEmpty() ? 0 :
-                                Double.parseDouble(inputEscalar.getText());
+                        int Escalar = inputEscalar.getText().isEmpty() ? 0 :
+                                Integer.parseInt(inputEscalar.getText());
 
-                        double B11 = inputB11.getText().isEmpty() ? 0 :
-                                Double.parseDouble(inputB11.getText());
-                        double B21 = inputB21.getText().isEmpty() ? 0 :
-                                Double.parseDouble(inputB21.getText());
-                        double B12 = inputB12.getText().isEmpty() ? 0 :
-                                Double.parseDouble(inputB12.getText());
-                        double B22 = inputB22.getText().isEmpty() ? 0 :
-                                Double.parseDouble(inputB22.getText());
+                        int B11 = inputB11.getText().isEmpty() ? 0 :
+                                Integer.parseInt(inputB11.getText());
+                        int B21 = inputB21.getText().isEmpty() ? 0 :
+                                Integer.parseInt(inputB21.getText());
+                        int B12 = inputB12.getText().isEmpty() ? 0 :
+                                Integer.parseInt(inputB12.getText());
+                        int B22 = inputB22.getText().isEmpty() ? 0 :
+                                Integer.parseInt(inputB22.getText());
 
-                        if (inputEscalar.getText().isEmpty()) {
+                        int C11 = 0, C21 = 0, C12 = 0, C22 = 0;
+
+                        if (label.equals("Somar")) {
+                            inputEscalar.setText("");
+                            C11 = calculadora.somar(A11, B11);
+                            C21 = calculadora.somar(A21, B21);
+                            C12 = calculadora.somar(A12, B12);
+                            C22 = calculadora.somar(A22, B22);
+                        } else if (label.equals("Subtrair")) {
+                            inputEscalar.setText("");
+                            C11 = calculadora.subtrair(A11, B11);
+                            C21 = calculadora.subtrair(A21, B21);
+                            C12 = calculadora.subtrair(A12, B12);
+                            C22 = calculadora.subtrair(A22, B22);
+                        } else if (label.equals("Multiplicar")) {
+                            inputEscalar.setText("");
+                            C11 = calculadora.multiplicar(A11, B11);
+                            C21 = calculadora.multiplicar(A21, B21);
+                            C12 = calculadora.multiplicar(A12, B12);
+                            C22 = calculadora.multiplicar(A22, B22);
+                        } else if (label.equals("Escalar")) {
+                            inputB11.setText("");
+                            inputB21.setText("");
+                            inputB12.setText("");
+                            inputB22.setText("");
+                            C11 = A11 * Escalar;
+                            C21 = A21 * Escalar;
+                            C12 = A12 * Escalar;
+                            C22 = A22 * Escalar;
+                        }
+
+                        /*if (inputEscalar.getText().isEmpty()) {
                             inputB11.setEnabled(true);
                             inputB21.setEnabled(true);
                             inputB12.setEnabled(true);
@@ -153,42 +184,12 @@ public class Main {
                             inputEscalar.setEnabled(false);
                         } else {
                             inputEscalar.setEnabled(true);
-                        }
-
-                        /*if (B11 == 0 && B21 == 0 && B12 == 0 && B22 == 0) {
-                            inputEscalar.setEnabled(true);
-                        } else {
-                            inputEscalar.setEnabled(false);
                         }*/
 
-                        double C11 = 0, C21 = 0, C12 = 0, C22 = 0;
-
-                        if (label.equals("Somar")) {
-                            C11 = calculadora.somar(A11, B11);
-                            C21 = calculadora.somar(A21, B21);
-                            C12 = calculadora.somar(A12, B12);
-                            C22 = calculadora.somar(A22, B22);
-                        } else if (label.equals("Subtrair")) {
-                            C11 = calculadora.subtrair(A11, B11);
-                            C21 = calculadora.subtrair(A21, B21);
-                            C12 = calculadora.subtrair(A12, B12);
-                            C22 = calculadora.subtrair(A22, B22);
-                        } else if (label.equals("Multiplicar")) {
-                            C11 = calculadora.multiplicar(A11, B11);
-                            C21 = calculadora.multiplicar(A21, B21);
-                            C12 = calculadora.multiplicar(A12, B12);
-                            C22 = calculadora.multiplicar(A22, B22);
-                        } else if (label.equals("Escalar")) {
-                            C11 = A11 * Escalar;
-                            C21 = A21 * Escalar;
-                            C12 = A12 * Escalar;
-                            C22 = A22 * Escalar;
-                        }
-
-                        outputC11.setText(Double.toString(C11));
-                        outputC21.setText(Double.toString(C21));
-                        outputC12.setText(Double.toString(C12));
-                        outputC22.setText(Double.toString(C22));
+                        outputC11.setText(Integer.toString(C11));
+                        outputC21.setText(Integer.toString(C21));
+                        outputC12.setText(Integer.toString(C12));
+                        outputC22.setText(Integer.toString(C22));
                     } catch (NumberFormatException ex) {
                         outputC11.setText("Erro");
                         outputC21.setText("Erro");
