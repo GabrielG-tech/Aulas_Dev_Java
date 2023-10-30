@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Aula04.1-Operacao_Matrizes:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Aula04_1_Operacao_Matrizes_jar</output-path>
+    <root id="archive" name="Aula04.1-Operacao_Matrizes.jar">
+      <element id="module-output" name="Aula04.1-Operacao_Matrizes" />
+    </root>
+  </artifact>
+</component>

@@ -152,19 +152,19 @@ public class Main {
                             C22 = calculadora.subtrair(A22, B22);
                         } else if (label.equals("Multiplicar")) {
                             inputEscalar.setText("");
-                            C11 = calculadora.multiplicar(A11, B11);
-                            C21 = calculadora.multiplicar(A21, B21);
-                            C12 = calculadora.multiplicar(A12, B12);
-                            C22 = calculadora.multiplicar(A22, B22);
+                            C11 = calculadora.multiplicar(A11, B11, A12, B21);
+                            C12 = calculadora.multiplicar(A11, B12, A12, B22);
+                            C21 = calculadora.multiplicar(A21, B11, A22, B21);
+                            C22 = calculadora.multiplicar(A21, B12, A22, B22);
                         } else if (label.equals("Escalar")) {
                             inputB11.setText("");
                             inputB21.setText("");
                             inputB12.setText("");
                             inputB22.setText("");
-                            C11 = A11 * Escalar;
-                            C21 = A21 * Escalar;
-                            C12 = A12 * Escalar;
-                            C22 = A22 * Escalar;
+                            C11 = calculadora.escalar(A11, Escalar);
+                            C21 = calculadora.escalar(A21, Escalar);
+                            C12 = calculadora.escalar(A12, Escalar);
+                            C22 = calculadora.escalar(A22, Escalar);
                         }
 
                         /*if (inputEscalar.getText().isEmpty()) {

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Aula04.1-Operacao_Matrizes:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -14,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -35,13 +41,99 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/Users/gabriel.gsouza/Downloads",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.MainTest.teste4">
+    <configuration name="MainTest.escalMatriz" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Aula04.1-Operacao_Matrizes" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.MainTest" />
+      <option name="METHOD_NAME" value="escalMatriz" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest.multMatriz" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Aula04.1-Operacao_Matrizes" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.MainTest" />
+      <option name="METHOD_NAME" value="multMatriz" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest.somaMatriz" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Aula04.1-Operacao_Matrizes" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.MainTest" />
+      <option name="METHOD_NAME" value="somaMatriz" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest.teste4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Aula04.1-Operacao_Matrizes" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.MainTest" />
+      <option name="METHOD_NAME" value="teste4" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MainTest.teste4" />
+        <item itemvalue="JUnit.MainTest.escalMatriz" />
+        <item itemvalue="JUnit.MainTest.multMatriz" />
+        <item itemvalue="JUnit.MainTest.somaMatriz" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
