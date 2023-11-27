@@ -14,8 +14,9 @@ public class Main {
         static JFrame frame = new JFrame("Cores");
 
         public static void main(String[] args) throws InterruptedException {
-            try {
-                String path = "https://testeinfnet.000webhostapp.com//arquivo.txt";
+            //https://testeinfnet.000webhostapp.com//arquivo.txt
+            try { //https://webwebwebsitee.000webhostapp.com/
+                String path = "https://webwebwebsitee.000webhostapp.com/arquivo.txt";
                 int value = -1;
 
                 while (true) {
@@ -26,7 +27,7 @@ public class Main {
                         Janela(doc.body().ownText());
                         value = Integer.parseInt(doc.body().ownText());
                     }
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -42,14 +43,11 @@ public class Main {
 
             switch (type) {
                 case "0":
-
                     frame.getContentPane().setBackground(Color.GREEN);
                     break;
-
                 case "1":
                     frame.getContentPane().setBackground(Color.YELLOW);
                     break;
-
                 case "2":
                     frame.getContentPane().setBackground(Color.RED);
             }

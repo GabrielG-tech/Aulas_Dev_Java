@@ -13,6 +13,8 @@ public class Main {
 
             Document doc = Jsoup.connect(path).get();
             System.out.println(doc);*/
+
+            //https://webwebwebsitee.000webhostapp.com/
             String path = "https://docs.oracle.com/en/java/javase/11/";
             Document doc = Jsoup.connect(path).get();
             Elements topics = doc.select("ul.topics");
@@ -21,12 +23,12 @@ public class Main {
                     for (Element link : listItem.children()) {
                         String url = link.attr("href");
                         String text = link.text();
-                        System.out.println();
+                        System.out.println(url + " " + text);
                     }
                 }
             }
         } catch (IOException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 }
