@@ -10,7 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ce0f730-05b6-4069-b4e7-c37e946339a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Aula03.1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula03.1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Aula02.3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula02.3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Aula05.1_temperatura_umidade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula05.1_temperatura_umidade/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Aula09.1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula09.1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Aula10.3_RestAPI_TempUmid/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula10.3_RestAPI_TempUmid/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +38,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/gabriel.gsouza/Documents/Dev Java/Java II/Aula03.2",
+    "last_opened_file_path": "C:/Users/gabriel.gsouza/Documents/Dev Java/Java II/Aula01.4",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
