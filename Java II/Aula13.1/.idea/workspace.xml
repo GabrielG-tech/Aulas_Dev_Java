@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db80d148-d2ec-4afe-acae-f02576b0893f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Aula01.4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula01.4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Aula02.3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula02.3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Aula03.2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula03.2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Aula05.1_temperatura_umidade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula05.1_temperatura_umidade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Aula09.1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula09.1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Aula10.3_RestAPI_TempUmid/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula10.3_RestAPI_TempUmid/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Aula12.2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Aula12.2/.idea/vcs.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +36,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/gabriel.gsouza/Documents/Dev Java/Java II/Aula01.2"
+    "last_opened_file_path": "C:/Users/gabriel.gsouza/Documents/Dev Java/Java II/Aula13.1"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
