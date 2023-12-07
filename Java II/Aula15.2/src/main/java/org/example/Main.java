@@ -1,5 +1,9 @@
 package org.example;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -12,16 +16,23 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Objects;
+
 import static java.lang.System.exit;
 
+import static spark.Spark.*;
+
 public class Main {
+
     public static void main(String[] args) {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3, 2));
 
         String path = "http://localhost:8080/nome?p=";
 
-        JFrame frame = new JFrame("Cliente");
+        JFrame frame = new JFrame("Servidor");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 400);
         frame.setLocationRelativeTo(null);
@@ -35,7 +46,7 @@ public class Main {
 
         JLabel label1 = new JLabel("Nome:");
         label1.setFont((new Font("Arial", Font.BOLD, 30)));
-        JLabel label2 = new JLabel("Acesso:");
+        JLabel label2 = new JLabel("Email:");
         label2.setFont((new Font("Arial", Font.BOLD, 30)));
 
 
@@ -83,14 +94,73 @@ public class Main {
                         ex.printStackTrace();
                     } catch (IOException ex) {
                         ex.printStackTrace();
-                    } catch(NumberFormatException ex){
-                            outputField.setText("Erro: Entrada invalida");
-                        }
+                    } catch (NumberFormatException ex) {
+                        outputField.setText("Erro: Entrada invalida");
                     }
-                });
+                }
+            });
+        }
+        frame.add(panel);
+        frame.setVisible(true);
+
+        port(8080);
+
+        get("/nome", (req, res) -> {
+            String nome = req.queryParams("p");
+            String email = req.queryParams("p2");
+            inputField1.setText(nome);
+            inputField2.setText(email);
+
+            outputField.setText(inputField1.getText());
+
+            return "{\n \"" + label1.getText() + "\"\n \"" + inputField1.getText() + "\",\n  \"email\": \"" + inputField2.getText() + "\"\n}\n";
+        });
+
+        post("/api", (req, res) -> {
+            String corpoRequisicao = req.body();
+            System.out.println("Corpo JSON " + corpoRequisicao);
+
+            JsonElement jsonElement = JsonParser.parseString(corpoRequisicao);
+            JsonObject jsonObject = jsonElement.getAsJsonObject();
+            inputField1.setText(jsonObject.get("nome").getAsString());
+            inputField2.setText(jsonObject.get("email").getAsString());
+
+            if (inputField1.getText().equals(inputField2.getText()))
+                return "{\"ack\":\"1\"}";
+            else
+                return "{\"ack\":\"0\"}";
+        });
+
+        abrirPagWeb("http://localhost:8080/nome?p=Gabriel&p2=gabriel@gmail.com");
+    }
+
+    /* https://dontpad.com/071223
+
+ fetch('http://localhost:8080/api', {
+ method: 'POST',
+ headers: {
+ 'Content-Type': 'application/json',
+ },
+ body: JSON.stringify({
+ nome: 'Joana',
+ email: 'joana@gmail.com',
+ }),
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Erro:', error));
+
+    */
+
+
+    // MÉTODO QUE ABRE UMA PÁGINA DA WEB
+    public static void abrirPagWeb(String link) {
+        try {
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI(link));
             }
-            frame.add(panel);
-            frame.setVisible(true);
+        } catch (IOException | URISyntaxException e) {
+            System.out.println(e);
         }
     }
 }
