@@ -17,8 +17,6 @@ public class Servico {
         this.local = local;
     }
 
-    // Getters e setters para os atributos
-
     public LocalDateTime getDataHoraCotacao() {
         return dataHoraCotacao;
     }
@@ -77,5 +75,32 @@ public class Servico {
                 ", local='" + local + '\'' +
                 ", observacoesCliente='" + observacoesCliente + '\'' +
                 '}';
+    }
+
+    public void atualizarServico(LocalDateTime novaDataHoraExecucao, double novoValor, String novoLocal) {
+        this.dataHoraExecucao = novaDataHoraExecucao;
+        this.valor = novoValor;
+        this.local = novoLocal;
+    }
+
+    // adicionar uma avaliação ao serviço
+    public void adicionarAvaliacao(int novaAvaliacao) {
+        if (novaAvaliacao >= 1 && novaAvaliacao <= 5) {
+            this.avaliacao = novaAvaliacao;
+        } else {
+            System.out.println("Avaliação inválida. A avaliação deve estar entre 1 e 5.");
+        }
+    }
+
+    public void adicionarObservacoes(String novasObservacoes) {
+        this.observacoesCliente = novasObservacoes;
+    }
+
+    public String obterDetalhesServico() {
+        return "Data e hora de execução: " + dataHoraExecucao +
+                "\nValor: " + valor +
+                "\nLocal: " + local +
+                "\nAvaliação: " + avaliacao +
+                "\nObservações do cliente: " + observacoesCliente;
     }
 }

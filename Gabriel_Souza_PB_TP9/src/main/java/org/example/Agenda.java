@@ -47,4 +47,23 @@ public class Agenda {
             }
         }
     }
+
+    public void agendarData(LocalDate data) {
+        if (verificarDataDisponivel(data)) {
+            adicionarDataOcupada(data);
+            System.out.println("Data agendada com sucesso para: " + data);
+        } else {
+            System.out.println("A data " + data + " está ocupada. Escolha outra data.");
+        }
+    }
+
+    // Método para cancelar uma data agendada
+    public void cancelarData(LocalDate data) {
+        if (datasOcupadas.contains(data)) {
+            removerDataOcupada(data);
+            System.out.println("Agendamento cancelado para a data: " + data);
+        } else {
+            System.out.println("A data " + data + " não está agendada.");
+        }
+    }
 }

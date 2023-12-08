@@ -19,8 +19,6 @@ public class Imovel {
         this.cep = cep;
     }
 
-    // Getters e setters para os atributos
-
     public String getLogradouro() {
         return logradouro;
     }
@@ -79,7 +77,7 @@ public class Imovel {
 
     @Override
     public String toString() {
-        return "Imovel{" +
+        return "Imovel {" +
                 "logradouro='" + logradouro + '\'' +
                 ", numero='" + numero + '\'' +
                 ", complemento='" + complemento + '\'' +
@@ -89,5 +87,31 @@ public class Imovel {
                 ", cep='" + cep + '\'' +
                 '}';
     }
-}
 
+    private boolean validarCEP(String cep) {
+        // Validar o formato do CEP
+        return cep.matches("\\d{5}-\\d{3}");
+    }
+
+    public void atualizarEndereco(String logradouro, String numero, String complemento, String bairro, String cidade, String estado, String cep) {
+        if (validarCEP(cep)) {
+            this.logradouro = logradouro;
+            this.numero = numero;
+            this.complemento = complemento;
+            this.bairro = bairro;
+            this.cidade = cidade;
+            this.estado = estado;
+            this.cep = cep;
+        } else {
+            System.out.println("Formato de CEP inválido. Por favor, insira um CEP válido (XXXXX-XXX).");
+        }
+    }
+
+    public void exibirInformacoes() {
+        System.out.println("Endereço: " + logradouro + ", " + numero + " - " + complemento);
+        System.out.println("Bairro: " + bairro);
+        System.out.println("Cidade: " + cidade);
+        System.out.println("Estado: " + estado);
+        System.out.println("CEP: " + cep);
+    }
+}
