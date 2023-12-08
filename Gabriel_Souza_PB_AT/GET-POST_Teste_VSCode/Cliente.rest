@@ -1,0 +1,10 @@
+post http://localhost:8080/cliente 
+
+{ 
+    "nome": "Gabriel",
+    "telefone": "2198765",
+    "email": "gabriel@gmail.com"
+}
+
+### 
+get http://localhost:8080//cliente/Gabriel

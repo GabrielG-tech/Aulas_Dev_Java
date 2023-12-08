@@ -4,17 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Funcionario {
-    private static List<Funcionario> listaFuncionarios = new ArrayList<>();
+    private static final List<Funcionario> listaFuncionarios = new ArrayList<>();
     private String nome;
     private String telefone;
     private String email;
     private String cargo;
+    private String cpf;
 
-    public Funcionario(String nome, String telefone, String email, String cargo) {
+    public Funcionario(String nome, String telefone, String email, String cargo, String cpf) {
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
         this.cargo = cargo;
+        this.cpf = cpf;
     }
 
     public String getNome() {
@@ -45,8 +47,16 @@ public class Funcionario {
         return cargo;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public void setCargo(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cargo = cpf;
     }
 
     @Override
@@ -56,12 +66,13 @@ public class Funcionario {
                 ", telefone='" + telefone + '\'' +
                 ", email='" + email + '\'' +
                 ", cargo='" + cargo + '\'' +
+                ", cpf='" + cpf + '\'' +
                 '}';
     }
 
     // Métodos para gerenciamento de funcionários
 
-    public void adicionarFuncionario(Funcionario novoFuncionario) {
+    public static void adicionarFuncionario(Funcionario novoFuncionario) {
         if (novoFuncionario != null) {
             if (!existeFuncionario(novoFuncionario.getNome())) {
                 listaFuncionarios.add(novoFuncionario);
@@ -100,7 +111,16 @@ public class Funcionario {
         return listaFuncionarios;
     }
 
-    private boolean existeFuncionario(String nomeFuncionario) {
+    public static Funcionario obterDetalhesFuncionario(String nomeFuncionario) {
+        for (Funcionario funcionario : listaFuncionarios) {
+            if (funcionario.getNome().equals(nomeFuncionario)) {
+                return funcionario;
+            }
+        }
+        return null; // Funcionarios não encontrado
+    }
+
+    private static boolean existeFuncionario(String nomeFuncionario) {
         for (Funcionario funcionario : listaFuncionarios) {
             if (funcionario.getNome().equals(nomeFuncionario)) {
                 return true;
