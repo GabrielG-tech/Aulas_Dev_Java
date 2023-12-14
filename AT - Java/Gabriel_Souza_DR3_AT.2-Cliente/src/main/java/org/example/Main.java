@@ -1,6 +1,8 @@
 package org.example;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,22 +13,22 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Main {
-    static final String path = "http://localhost:8080/verificarCodigo"; // Rota para verificar código RFID
-
+public class Main { // CLIENTE
+    // Rota para verificar código RFID:
+    static final String path = "http://localhost:8080/verificarCodigo";
     public static void main(String[] args) {
         JFrame frame = new JFrame("Cliente");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450, 350);
+        frame.setSize(450, 300);
         Dimension screesize = Toolkit.getDefaultToolkit().getScreenSize();
         frame.setLocation((int) screesize.getWidth() / 4, (int) screesize.getHeight() / 3);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 2));
+        panel.setLayout(new GridLayout(4,1));
 
-        JTextField codigoRFIDField = new JTextField();
+        JTextField codigoRFIDField = new JTextField(2);
         codigoRFIDField.setFont(new Font("Arial", Font.PLAIN, 30));
-        JTextField respostaField = new JTextField();
+        JTextField respostaField = new JTextField(4);
         respostaField.setEditable(false);
         respostaField.setFont(new Font("Arial", Font.PLAIN, 30));
 
@@ -40,33 +42,26 @@ public class Main {
         panel.add(label2);
         panel.add(respostaField);
 
-        String[] buttonLabels = { "Verificar", "Sair" };
+        codigoRFIDField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                sendRequest(codigoRFIDField.getText(), respostaField/*, codigoRFIDField*/, panel);
+            }
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                sendRequest(codigoRFIDField.getText(), respostaField/*, codigoRFIDField*/, panel);
+            }
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                System.out.println("Alterado");
+            }
+        });
 
-        for (String label : buttonLabels) {
-            JButton button = new JButton(label);
-            button.setFont(new Font("Arial", Font.PLAIN, 30));
-            panel.add(button);
+    frame.add(panel);
+    frame.setVisible(true);
+}
 
-            button.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (label.equals("Verificar")) {
-                        String codigo = codigoRFIDField.getText();
-                        if (!codigo.isEmpty()) {
-                            sendRequest(codigo, respostaField, panel);
-                        }
-                    } else if (label.equals("Sair")) {
-                        System.exit(0);
-                    }
-                }
-            });
-        }
-
-        frame.add(panel);
-        frame.setVisible(true);
-    }
-
-    public static void sendRequest(String codigoRFID, JTextField respostaField, JPanel panel) {
+    public static void sendRequest(String codigo, JTextField respostaField/*, JTextField codigoRFID*/, JPanel panel) {
         try {
             URL url = new URL(path);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -75,7 +70,7 @@ public class Main {
             connection.setDoOutput(true);
 
             OutputStream os = connection.getOutputStream();
-            os.write(codigoRFID.getBytes());
+            os.write(codigo.getBytes());
             os.flush();
 
             int responseCode = connection.getResponseCode();
@@ -95,11 +90,10 @@ public class Main {
                 // Muda a cor do painel por 3 segundos
                 if (responseBody.equals("ACK")) {
                     panel.setBackground(Color.GREEN);
-                    Timer timer = new Timer(3000, new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                            panel.setBackground(UIManager.getColor("TextField.background"));
-                        }
+                    Timer timer = new Timer(3000, e -> {
+                        panel.setBackground(UIManager.getColor("TextField.background"));
+                        respostaField.setText("");
+                        //codigoRFID.setText("");
                     });
                     timer.setRepeats(false);
                     timer.start();
@@ -109,6 +103,8 @@ public class Main {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             panel.setBackground(UIManager.getColor("TextField.background"));
+                            respostaField.setText("");
+                            //codigoRFID.setText("");
                         }
                     });
                     timer.setRepeats(false);
