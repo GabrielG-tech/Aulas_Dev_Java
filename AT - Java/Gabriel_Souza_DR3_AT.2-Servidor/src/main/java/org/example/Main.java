@@ -1,89 +1,81 @@
 package org.example;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import spark.Response;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.xml.crypto.Data;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 
 import static spark.Spark.*;
 
 public class Main {
-    static int acessos = 0;
+    private static final Gson gson = new Gson();
 
     public static void main(String[] args) {
-        port(8080);
-
-        JFrame frame = new JFrame("Servidor IMC");
+        JFrame frame = new JFrame("Servidor");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450, 400);
+        frame.setSize(450, 350);
         Dimension screesize = Toolkit.getDefaultToolkit().getScreenSize();
-        frame.setLocation((int) screesize.getWidth() / 4, (int) screesize.getHeight() / 2);
+        frame.setLocation((int) screesize.getWidth() / 2, (int) screesize.getHeight() / 3);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 2));
+        panel.setLayout(new GridLayout(3, 2));
 
-        JTextField massa = new JTextField();
-        massa.setEditable(false);
-        JTextField altura = new JTextField();
-        altura.setEditable(false);
-        JTextField imc = new JTextField();
-        imc.setEditable(false);
+        JTextField codigoRFIDField = new JTextField("123");
+        codigoRFIDField.setFont(new Font("Arial", Font.PLAIN, 30));
+        JTextField respostaField = new JTextField();
+        respostaField.setEditable(false);
+        respostaField.setFont(new Font("Arial", Font.PLAIN, 30));
 
-        massa.setFont((new Font("Arial", Font.PLAIN, 30)));
-        altura.setFont((new Font("Arial", Font.PLAIN, 30)));
-        imc.setFont((new Font("Arial", Font.PLAIN, 30)));
-
-        JLabel label1 = new JLabel("Massa:");
-        label1.setFont((new Font("Arial", Font.BOLD, 30)));
-        JLabel label2 = new JLabel("Altura:");
-        label2.setFont((new Font("Arial", Font.BOLD, 30)));
-        JLabel label3 = new JLabel("IMC:");
-        label3.setFont((new Font("Arial", Font.BOLD, 30)));
+        JLabel label1 = new JLabel("Código RFID:");
+        label1.setFont(new Font("Arial", Font.BOLD, 30));
+        JLabel label2 = new JLabel("Resposta:");
+        label2.setFont(new Font("Arial", Font.BOLD, 30));
 
         panel.add(label1);
-        panel.add(massa);
+        panel.add(codigoRFIDField);
         panel.add(label2);
-        panel.add(altura);
-        panel.add(label3);
-        panel.add(imc);
+        panel.add(respostaField);
 
-        String[] buttonLabels = { "Limpar", "Fechar" };
+        port(8080);
 
-        get("/nome", (req, res) ->
-        {
-            String op1 = req.queryParams("p");
-            altura.setText(op1);
-            massa.setText(Integer.toString(acessos));
-
-            String content = Integer.toString(acessos);
-            acessos++;
-            return content;
+        post("/verificarCodigo", (req, res) -> {
+            String codigoRFID = req.body();
+            String response;
+            if (codigoRFID.equals(codigoRFIDField.getText())) {
+                response = "ACK";
+            } else {
+                response = "NACK";
+            }
+            respostaField.setText(response);
+            return response;
+//            JsonObject response = new JsonObject();
+//            if (codigoRFID.equals(codigoRFIDField.getText())) {
+//                response.addProperty("status", "ACK");
+//
+//            } else {
+//                response.addProperty("status", "NACK");
+//            }
+//            respostaField.setText(response.toString());
+//            return gson.toJson(response);
         });
 
-        post("/api", (req, res) -> {
-            double IMC, m, a;
-
-            String corpoRequisicao = req.body();
-            System.out.println("Corpo JSON: " + corpoRequisicao);
-
-            JsonElement jsonElement = JsonParser.parseString(corpoRequisicao);
-            JsonObject jsonObject = jsonElement.getAsJsonObject();
-            altura.setText(jsonObject.get("altura").getAsString());
-            massa.setText(jsonObject.get("massa").getAsString());
-
-            a = Double.parseDouble(altura.getText());
-            m = Double.parseDouble(massa.getText());
-            IMC = m / (a * a);
-
-            imc.setText(String.format("%.2f", IMC));
-
-            return "{\"IMC\":\" " + String.format("%.2f", IMC) + "\"}";
-        });
+        String[] buttonLabels = { "Limpar", "Sair" };
 
         for (String label : buttonLabels) {
             JButton button = new JButton(label);
@@ -93,13 +85,18 @@ public class Main {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (label.equals("Fechar")) {
-                        System.exit(0);
+                    String codigoRFID = codigoRFIDField.getText();
+
+                    if (codigoRFID.equals(codigoRFIDField.getText())) {
+                        respostaField.setText("ACK");
+                    } else {
+                        respostaField.setText("NACK");
                     }
                     if (label.equals("Limpar")) {
-                        altura.setText("");
-                        massa.setText("");
-                        imc.setText("");
+                        codigoRFIDField.setText("");
+                        respostaField.setText("");
+                    } else if (label.equals("Sair")) {
+                        System.exit(0);
                     }
                 }
             });

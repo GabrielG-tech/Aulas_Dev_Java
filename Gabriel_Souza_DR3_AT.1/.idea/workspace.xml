@@ -5,48 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="578fdbb9-83e4-495e-b649-c4821eb8042d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Combine arquivos PDF online. O serviço é gratuito para mesclar PDF.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Combine arquivos PDF online. O serviço é gratuito para mesclar PDF_files/app.90164e2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Combine arquivos PDF online. O serviço é gratuito para mesclar PDF_files/app.90164e2.js.download" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Combine arquivos PDF online. O serviço é gratuito para mesclar PDF_files/f.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Combine arquivos PDF online. O serviço é gratuito para mesclar PDF_files/ilove.min.js.download" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Combine arquivos PDF online. O serviço é gratuito para mesclar PDF_files/ilovepdf.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Combine arquivos PDF online. O serviço é gratuito para mesclar PDF_files/js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Combine arquivos PDF online. O serviço é gratuito para mesclar PDF_files/plupload.full.min.js.download" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Combine arquivos PDF online. O serviço é gratuito para mesclar PDF_files/preload.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Diagrama de Sequencia TP7 parte 1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Diagrama de Sequencia TP7 parte 2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Diagramas_PB_JustTheJob (refazer diagrama de sequencia + pesquisa com cpf).pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/GET-POST_Teste_VSCode/Cliente.rest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PBDB_AT.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/src/main/java/org/example/Agenda.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/src/main/java/org/example/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/src/main/java/org/example/Funcionario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/src/main/java/org/example/Imovel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Gabriel_Souza_PB_TP9/src/main/java/org/example/Servico.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_AT/Lembretes.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/src/main/java/org/example/Agenda.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/src/main/java/org/example/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/src/main/java/org/example/Funcionario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/src/main/java/org/example/Imovel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gabriel_Souza_PB_TP9/src/main/java/org/example/Servico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,18 +32,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit3",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
-    "last_opened_file_path": "C:/Users/gabriel.gsouza/Documents/Dev Java/AT - Java/Gabriel_Souza_DR3_AT.2",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit3&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3&quot;: &quot;junit.framework.TestCase&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gabriel.gsouza/Documents/Dev Java/Gabriel_Souza_DR3_AT.1&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="junit.framework.TestCase" />
