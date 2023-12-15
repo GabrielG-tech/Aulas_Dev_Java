@@ -1,12 +1,11 @@
 package org.example;
 import com.google.gson.Gson;
-
 import java.time.LocalDateTime;
-
+import java.util.ArrayList;
+import java.util.List;
 import static spark.Spark.*;
 
 public class Main {
-
     public static void main(String[] args) {
         // Define a porta do servidor
         port(8080);
@@ -18,17 +17,29 @@ public class Main {
         Funcionario funcionario = new Funcionario("Maria", "987654321",
                 "maria@email.com", "Gerente", "123.123.123-01");
         Agenda agenda = new Agenda();
-        Imovel imovel = new Imovel("Rua Principal", "123", "", "Centro",
-                "Cidade", "Estado", "12345-678");
+        Imovel imovel = new Imovel("Rua Principal", "123", "Apto. 715", "Barra da Tijuca",
+                "Rio de Janeiro", "RJ", "22620-000");
 
-        // parâmetros para um serviço
+        // parâmetros de agendamento de um serviço:
         // 8 de dezembro de 2023 às 10:00
         LocalDateTime dataHoraCotacao = LocalDateTime.of(2023, 12, 8, 10, 0);
         // 10 de dezembro de 2023 às 14:30
         LocalDateTime dataHoraExecucao = LocalDateTime.of(2023, 12, 10, 14, 30);
 
-        // Exemplo de classe servico
-        Servico servico = new Servico(dataHoraCotacao, dataHoraExecucao, 250.00, "Rua Principal, 100");
+        // Verifica se as datas que o cliente deseja estão disponiveis (mokadas)
+        List<LocalDateTime> datasParaVerificar = new ArrayList<>();
+        datasParaVerificar.add(dataHoraCotacao);
+        datasParaVerificar.add(dataHoraExecucao);
+        agenda.verificarDatasDisponiveis(datasParaVerificar);
+
+        agenda.agendarData(dataHoraCotacao);
+        agenda.agendarData(dataHoraExecucao);
+
+        // Exemplo de criação de um novo serviço
+        Servico servico = new Servico(dataHoraCotacao, dataHoraExecucao, 250.00, imovel);
+
+        // Exemplo de retorno de local no qual serviço foi agendado
+        System.out.println("\nLocal no qual serviço foi agenda:\n" + servico.getLocal());
 
         // ================================ Spark =========================================================
 

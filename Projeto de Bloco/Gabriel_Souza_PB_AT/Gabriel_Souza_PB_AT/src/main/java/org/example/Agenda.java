@@ -1,30 +1,33 @@
 package org.example;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Agenda {
-    private LocalDate dataReservada;
+    private LocalDateTime dataReservada;
     private Funcionario gerenteAlocado;
     private Cliente clienteReservado;
     private Imovel imovelReservado;
-    private List<LocalDate> datasOcupadas;
+    private List<LocalDateTime> datasOcupadas;
 
     public Agenda() {
         datasOcupadas = new ArrayList<>();
     }
 
-    public void adicionarDataOcupada(LocalDate data) {
+    public void adicionarDataOcupada(LocalDateTime data) {
         datasOcupadas.add(data);
     }
 
-    public void removerDataOcupada(LocalDate data) {
+    public void removerDataOcupada(LocalDateTime data) {
         datasOcupadas.remove(data);
     }
 
-    public List<LocalDate> getDatasOcupadas() {
+    public List<LocalDateTime> getDatasOcupadas() {
         return datasOcupadas;
     }
 
@@ -33,33 +36,32 @@ public class Agenda {
             System.out.println("Não há datas ocupadas na agenda.");
         } else {
             System.out.println("Datas ocupadas na agenda:");
-            for (LocalDate data : datasOcupadas) {
-                System.out.println(data);
+            for (LocalDateTime data : datasOcupadas) {
+                System.out.println(formatarParaBrasileiro(data));
             }
         }
     }
 
-    public boolean verificarDataDisponivel(LocalDate data) {
+    public boolean verificarDataDisponivel(LocalDateTime data) {
         return !datasOcupadas.contains(data);
     }
-
-    public void verificarDatasDisponiveis(List<LocalDate> datasParaVerificar) {
-        for (LocalDate data : datasParaVerificar) {
+    public void verificarDatasDisponiveis(List<LocalDateTime> datasParaVerificar) {
+        for (LocalDateTime data : datasParaVerificar) {
             if (verificarDataDisponivel(data)) {
-                System.out.println("Data disponível para agendamento: " + data);
+                System.out.println("Data disponível para agendamento: " + formatarParaBrasileiro(data));
             } else {
-                System.out.println("Data ocupada: " + data);
+                System.out.println("Data ocupada: " + formatarParaBrasileiro(data));
             }
         }
     }
 
     public void verificarDatasDisponiveisGerente(Funcionario gerente) {
         if (gerente.getCargo().equals("Gerente")) {
-            for (LocalDate data : datasOcupadas) {
+            for (LocalDateTime data : datasOcupadas) {
                 if (verificarDataDisponivel(data)) {
-                    System.out.println("Data disponível para o gerente realizar cotação: " + data);
+                    System.out.println("Data disponível para o gerente realizar cotação: " + formatarParaBrasileiro(data));
                 } else {
-                    System.out.println("Data ocupada para o gerente realizar cotação: " + data);
+                    System.out.println("Data ocupada para o gerente realizar cotação: " + formatarParaBrasileiro(data));
                 }
             }
         } else {
@@ -67,20 +69,20 @@ public class Agenda {
         }
     }
 
-    public void agendarData(LocalDate data) {
+    public void agendarData(LocalDateTime data) {
         if (verificarDataDisponivel(data)) {
             adicionarDataOcupada(data);
-            System.out.println("Data agendada com sucesso para: " + data);
+            System.out.println("Data agendada com sucesso para: " + formatarParaBrasileiro(data));
         } else {
             System.out.println("A data " + data + " está ocupada. Escolha outra data.");
         }
     }
 
     // Método para cancelar uma data agendada
-    public void cancelarData(LocalDate data) {
+    public void cancelarData(LocalDateTime data) {
         if (datasOcupadas.contains(data)) {
             removerDataOcupada(data);
-            System.out.println("Agendamento cancelado para a data: " + data);
+            System.out.println("Agendamento cancelado para a data: " + formatarParaBrasileiro(data));
         } else {
             System.out.println("A data " + data + " não está agendada.");
         }
@@ -88,14 +90,14 @@ public class Agenda {
 
     public void apresentarDatasDisponiveis() {
         System.out.println("Datas disponíveis para agendamento:");
-        for (LocalDate data : datasOcupadas) {
+        for (LocalDateTime data : datasOcupadas) {
             if (verificarDataDisponivel(data)) {
-                System.out.println(data);
+                System.out.println(formatarParaBrasileiro(data));
             }
         }
     }
 
-    public void selecionarData(LocalDate dataSelecionada, Cliente cliente) {
+    public void selecionarData(LocalDateTime dataSelecionada, Cliente cliente) {
         if (verificarDataDisponivel(dataSelecionada)) {
             System.out.println("Data " + dataSelecionada + " selecionada com sucesso com a concordância do cliente: " + cliente.getNome());
         } else {
@@ -103,7 +105,7 @@ public class Agenda {
         }
     }
 
-    public void reservarDataParaServico(Funcionario gerente, LocalDate dataSelecionada) {
+    public void reservarDataParaServico(Funcionario gerente, LocalDateTime dataSelecionada) {
         if (verificarDataDisponivel(dataSelecionada)) {
             dataReservada = dataSelecionada;
             gerenteAlocado = gerente;
@@ -170,5 +172,14 @@ public class Agenda {
         } else {
             System.out.println("Não foi possível enviar a notificação.");
         }
+    }
+
+
+    public static String formatarParaBrasileiro(LocalDateTime dataHora) {
+        DateTimeFormatter formatoBrasileiro = DateTimeFormatter
+                .ofPattern("dd/MM/yyyy HH:mm")
+                .withLocale(new Locale("pt", "BR"));
+
+        return dataHora.format(formatoBrasileiro);
     }
 }

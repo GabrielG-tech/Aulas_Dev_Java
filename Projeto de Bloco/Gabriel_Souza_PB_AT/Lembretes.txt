@@ -1,7 +1,0 @@
-- Refazer diagrama de Sequencia 1 e 2 (só usar função e retorno)
-
-- Verificar sem o código bate com o diagrama de sequência
-
-- Revisar o PDF com toda Documentação + Código e ver se estão todos de acordo
-
-- Juntar todos PDFs em um só chamado "Gabriel_Souza_PB_AT"

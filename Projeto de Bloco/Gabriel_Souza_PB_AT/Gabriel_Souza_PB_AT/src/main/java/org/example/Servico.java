@@ -10,11 +10,17 @@ public class Servico {
     private String local;
     private String observacoesCliente;
 
-    public Servico(LocalDateTime dataHoraCotacao, LocalDateTime dataHoraExecucao, double valor, String local) {
+    public Servico(LocalDateTime dataHoraCotacao, LocalDateTime dataHoraExecucao, double valor, Imovel local) {
         this.dataHoraCotacao = dataHoraCotacao;
         this.dataHoraExecucao = dataHoraExecucao;
         this.valor = valor;
-        this.local = local;
+        this.local =  "Endereço: " + local.getLogradouro() +
+                ", " + local.getNumero() +
+                ", " + local.getComplemento() +
+                ", " + local.getBairro() +
+                ", " + local.getCidade() +
+                ", " + local.getEstado() +
+                "\nCEP: " + local.getCep();
     }
 
     public LocalDateTime getDataHoraCotacao() {
