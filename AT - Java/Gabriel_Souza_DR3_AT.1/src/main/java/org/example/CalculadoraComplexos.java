@@ -1,5 +1,7 @@
 package org.example;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,7 +19,9 @@ public class CalculadoraComplexos extends JFrame {
         setTitle("Calculadora de Números Complexos");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 400);
-        setLayout(null);
+        setLocationRelativeTo(null);
+
+        JPanel panel = new JPanel(new GridLayout(5, 2, 5, 5)); // GridLayout com 5 linhas, 2 colunas e espaçamento de 5 pixels
 
         JLabel labelNumero1 = new JLabel("Número Complexo 1:");
         labelNumero1.setBounds(20, 20, 150, 20);
@@ -80,7 +84,7 @@ public class CalculadoraComplexos extends JFrame {
                 realizarOperacao("modulo");
             }
         });
-
+        add(panel);
         setVisible(true);
     }
 
