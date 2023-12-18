@@ -1,0 +1,315 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CalculadoraComplexos</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.example</a>
+</div>
+
+<h1>Coverage Summary for Class: CalculadoraComplexos (org.example)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CalculadoraComplexos</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/65)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CalculadoraComplexos$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CalculadoraComplexos$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">CalculadoraComplexos$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/71)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.example;
+&nbsp;import javax.swing.*;
+&nbsp;import java.awt.event.ActionEvent;
+&nbsp;import java.awt.event.ActionListener;
+&nbsp;
+&nbsp;public class CalculadoraComplexos extends JFrame {
+&nbsp;    private JTextField numero1Real;
+&nbsp;    private JTextField numero1Imaginario;
+&nbsp;    private JTextField numero2Real;
+&nbsp;    private JTextField numero2Imaginario;
+&nbsp;    private JTextField resultado;
+&nbsp;    private JButton botaoSoma;
+&nbsp;    private JButton botaoSubtracao;
+&nbsp;    private JButton botaoModulo;
+&nbsp;
+<b class="nc">&nbsp;    public CalculadoraComplexos() {</b>
+<b class="nc">&nbsp;        setTitle(&quot;Calculadora de Números Complexos&quot;);</b>
+<b class="nc">&nbsp;        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</b>
+<b class="nc">&nbsp;        setSize(400, 400);</b>
+<b class="nc">&nbsp;        setLayout(null);</b>
+&nbsp;
+<b class="nc">&nbsp;        JLabel labelNumero1 = new JLabel(&quot;Número Complexo 1:&quot;);</b>
+<b class="nc">&nbsp;        labelNumero1.setBounds(20, 20, 150, 20);</b>
+<b class="nc">&nbsp;        add(labelNumero1);</b>
+&nbsp;
+<b class="nc">&nbsp;        numero1Real = new JTextField();</b>
+<b class="nc">&nbsp;        numero1Real.setBounds(20, 50, 50, 20);</b>
+<b class="nc">&nbsp;        add(numero1Real);</b>
+&nbsp;
+<b class="nc">&nbsp;        numero1Imaginario = new JTextField();</b>
+<b class="nc">&nbsp;        numero1Imaginario.setBounds(90, 50, 50, 20);</b>
+<b class="nc">&nbsp;        add(numero1Imaginario);</b>
+&nbsp;
+<b class="nc">&nbsp;        JLabel labelNumero2 = new JLabel(&quot;Número Complexo 2:&quot;);</b>
+<b class="nc">&nbsp;        labelNumero2.setBounds(20, 80, 150, 20);</b>
+<b class="nc">&nbsp;        add(labelNumero2);</b>
+&nbsp;
+<b class="nc">&nbsp;        numero2Real = new JTextField();</b>
+<b class="nc">&nbsp;        numero2Real.setBounds(20, 110, 50, 20);</b>
+<b class="nc">&nbsp;        add(numero2Real);</b>
+&nbsp;
+<b class="nc">&nbsp;        numero2Imaginario = new JTextField();</b>
+<b class="nc">&nbsp;        numero2Imaginario.setBounds(90, 110, 50, 20);</b>
+<b class="nc">&nbsp;        add(numero2Imaginario);</b>
+&nbsp;
+<b class="nc">&nbsp;        botaoSoma = new JButton(&quot;Soma&quot;);</b>
+<b class="nc">&nbsp;        botaoSoma.setBounds(20, 150, 80, 30);</b>
+<b class="nc">&nbsp;        add(botaoSoma);</b>
+&nbsp;
+<b class="nc">&nbsp;        botaoSubtracao = new JButton(&quot;Subtração&quot;);</b>
+<b class="nc">&nbsp;        botaoSubtracao.setBounds(110, 150, 100, 30);</b>
+<b class="nc">&nbsp;        add(botaoSubtracao);</b>
+&nbsp;
+<b class="nc">&nbsp;        botaoModulo = new JButton(&quot;Módulo&quot;);</b>
+<b class="nc">&nbsp;        botaoModulo.setBounds(220, 150, 80, 30);</b>
+<b class="nc">&nbsp;        add(botaoModulo);</b>
+&nbsp;
+<b class="nc">&nbsp;        resultado = new JTextField();</b>
+<b class="nc">&nbsp;        resultado.setBounds(20, 200, 300, 30);</b>
+<b class="nc">&nbsp;        resultado.setEditable(false);</b>
+<b class="nc">&nbsp;        add(resultado);</b>
+&nbsp;
+<b class="nc">&nbsp;        botaoSoma.addActionListener(new ActionListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;                realizarOperacao(&quot;soma&quot;);</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        botaoSubtracao.addActionListener(new ActionListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;                realizarOperacao(&quot;subtracao&quot;);</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        botaoModulo.addActionListener(new ActionListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;                realizarOperacao(&quot;modulo&quot;);</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        setVisible(true);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void realizarOperacao(String operacao) {
+<b class="nc">&nbsp;        double real1 = Double.parseDouble(numero1Real.getText());</b>
+<b class="nc">&nbsp;        double imag1 = Double.parseDouble(numero1Imaginario.getText());</b>
+<b class="nc">&nbsp;        double real2 = Double.parseDouble(numero2Real.getText());</b>
+<b class="nc">&nbsp;        double imag2 = Double.parseDouble(numero2Imaginario.getText());</b>
+&nbsp;
+<b class="nc">&nbsp;        Complexo complexo1 = new Complexo(real1, imag1);</b>
+<b class="nc">&nbsp;        Complexo complexo2 = new Complexo(real2, imag2);</b>
+&nbsp;
+<b class="nc">&nbsp;        Complexo resultado = null;</b>
+<b class="nc">&nbsp;        switch (operacao) {</b>
+&nbsp;            case &quot;soma&quot;:
+<b class="nc">&nbsp;                resultado = complexo1.somar(complexo2);</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            case &quot;subtracao&quot;:
+<b class="nc">&nbsp;                resultado = complexo1.subtrair(complexo2);</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            case &quot;modulo&quot;:
+<b class="nc">&nbsp;                double modulo = complexo1.modulo();</b>
+<b class="nc">&nbsp;                resultado = new Complexo(modulo, 0);</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            default:
+&nbsp;                break;
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (resultado != null) {</b>
+<b class="nc">&nbsp;            this.resultado.setText(resultado.getReal() + &quot; + &quot; + resultado.getImaginario() + &quot;i&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public JButton getBotaoSoma() {
+<b class="nc">&nbsp;        return botaoSoma;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public JButton getBotaoSubtracao() {
+<b class="nc">&nbsp;        return botaoSubtracao;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public JButton getBotaoModulo() {
+<b class="nc">&nbsp;        return botaoModulo;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public JTextField getNumero1Real() {
+<b class="nc">&nbsp;        return numero1Real;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public JTextField getNumero1Imaginario() {
+<b class="nc">&nbsp;        return numero1Imaginario;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public JTextField getNumero2Real() {
+<b class="nc">&nbsp;        return numero2Real;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public JTextField getNumero2Imaginario() {
+<b class="nc">&nbsp;        return numero2Imaginario;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public JTextField getResultado() {
+<b class="nc">&nbsp;        return resultado;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-18 11:31</div>
+</div>
+</body>
+</html>

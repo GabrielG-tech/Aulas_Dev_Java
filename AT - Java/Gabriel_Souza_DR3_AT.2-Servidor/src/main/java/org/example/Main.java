@@ -44,7 +44,6 @@ public class Main {
             respostaField.setText(response);
             return response;
         });
-
         frame.add(panel);
         frame.setVisible(true);
     }

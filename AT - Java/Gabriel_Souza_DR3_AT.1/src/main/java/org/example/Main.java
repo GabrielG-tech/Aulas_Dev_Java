@@ -6,13 +6,10 @@ import java.awt.event.ActionListener;
 
 public class Main {
     public static void main(String[] args) {
-        criarInterface();
-    }
-
-    private static void criarInterface() {
         CalculadoraComplexos calculadora = new CalculadoraComplexos();
         calculadora.getBotaoSoma().addActionListener(e -> realizarOperacao(calculadora, "soma"));
-        // Adicione outros listeners para os botões de subtração, módulo, etc., com as operações correspondentes
+        calculadora.getBotaoSoma().addActionListener(e -> realizarOperacao(calculadora, "subtracao"));
+        calculadora.getBotaoSoma().addActionListener(e -> realizarOperacao(calculadora, "modulo"));
     }
 
     private static void realizarOperacao(CalculadoraComplexos calculadora, String operacao) {
@@ -34,7 +31,6 @@ public class Main {
                 break;
             case "modulo":
                 double modulo = complexo1.modulo();
-                // Converte o resultado do módulo para um número complexo com a parte imaginária sendo zero
                 resultado = new Complexo(modulo, 0);
                 break;
 
