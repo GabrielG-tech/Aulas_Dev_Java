@@ -4,63 +4,82 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CalculadoraComplexos extends JFrame {
-    private JTextField numero1Real;
-    private JTextField numero1Imaginario;
-    private JTextField numero2Real;
-    private JTextField numero2Imaginario;
-    private JTextField resultado;
-    private JButton botaoSoma;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-    public CalculadoraComplexos() {
-        setTitle("Calculadora de Números Complexos");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300);
-        setLayout(null);
+public class CalculadoraComplexos {
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Calculadora de Números Complexos");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 200);
+        frame.setLayout(null);
 
         JLabel labelNumero1 = new JLabel("Número Complexo 1:");
-        labelNumero1.setBounds(20, 20, 150, 20);
-        add(labelNumero1);
+        labelNumero1.setBounds(10, 10, 150, 20);
 
-        numero1Real = new JTextField();
-        numero1Real.setBounds(20, 50, 50, 20);
-        add(numero1Real);
+        JTextField inputReal1 = new JTextField();
+        inputReal1.setBounds(160, 10, 50, 20);
 
-        // Adicione os outros campos de entrada (números complexos 2, botões, etc.)
+        JTextField inputImaginario1 = new JTextField();
+        inputImaginario1.setBounds(220, 10, 50, 20);
 
-        botaoSoma = new JButton("Soma");
-        botaoSoma.setBounds(20, 150, 80, 30);
-        add(botaoSoma);
+        JLabel labelNumero2 = new JLabel("Número Complexo 2:");
+        labelNumero2.setBounds(10, 40, 150, 20);
 
-        resultado = new JTextField();
-        resultado.setBounds(20, 200, 200, 30);
-        resultado.setEditable(false);
-        add(resultado);
+        JTextField inputReal2 = new JTextField();
+        inputReal2.setBounds(160, 40, 50, 20);
 
-        setVisible(true);
-    }
+        JTextField inputImaginario2 = new JTextField();
+        inputImaginario2.setBounds(220, 40, 50, 20);
 
-    public JButton getBotaoSoma() {
-        return botaoSoma;
-    }
+        JButton buttonSoma = new JButton("Somar");
+        buttonSoma.setBounds(10, 80, 80, 30);
 
-    public JTextField getNumero1Real() {
-        return numero1Real;
-    }
+        JButton buttonSubtracao = new JButton("Subtrair");
+        buttonSubtracao.setBounds(110, 80, 90, 30);
 
-    public JTextField getNumero1Imaginario() {
-        return numero1Imaginario;
-    }
+        JButton buttonModulo = new JButton("Módulo");
+        buttonModulo.setBounds(220, 80, 80, 30);
 
-    public JTextField getNumero2Real() {
-        return numero2Real;
-    }
+        JTextField output = new JTextField();
+        output.setEditable(false);
+        output.setBounds(10, 120, 300, 30);
 
-    public JTextField getNumero2Imaginario() {
-        return numero2Imaginario;
-    }
+        frame.add(labelNumero1);
+        frame.add(inputReal1);
+        frame.add(inputImaginario1);
+        frame.add(labelNumero2);
+        frame.add(inputReal2);
+        frame.add(inputImaginario2);
+        frame.add(buttonSoma);
+        frame.add(buttonSubtracao);
+        frame.add(buttonModulo);
+        frame.add(output);
 
-    public JTextField getResultado() {
-        return resultado;
+        buttonSoma.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    double real1 = Double.parseDouble(inputReal1.getText());
+                    double imag1 = Double.parseDouble(inputImaginario1.getText());
+                    double real2 = Double.parseDouble(inputReal2.getText());
+                    double imag2 = Double.parseDouble(inputImaginario2.getText());
+
+                    Complexo complexo1 = new Complexo(real1, imag1);
+                    Complexo complexo2 = new Complexo(real2, imag2);
+
+                    Complexo resultado = complexo1.soma(complexo2);
+                    output.setText(resultado.toString());
+                } catch (NumberFormatException ex) {
+                    output.setText("Entrada inválida");
+                }
+            }
+        });
+
+        // Lógica para os outros botões (subtração, módulo) similar ao botão de soma
+
+        frame.setVisible(true);
     }
 }

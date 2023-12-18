@@ -9,27 +9,28 @@ public class Complexo {
         this.imaginario = imaginario;
     }
 
-    public double getReal() {
-        return real;
+    public Complexo soma(Complexo outro) {
+        return new Complexo(this.real + outro.real, this.imaginario + outro.imaginario);
     }
 
-    public double getImaginario() {
-        return imaginario;
-    }
-
-    public Complexo somar(Complexo outro) {
-        double novoReal = this.real + outro.getReal();
-        double novoImaginario = this.imaginario + outro.getImaginario();
-        return new Complexo(novoReal, novoImaginario);
-    }
-
-    public Complexo subtrair(Complexo outro) {
-        double novoReal = this.real - outro.getReal();
-        double novoImaginario = this.imaginario - outro.getImaginario();
-        return new Complexo(novoReal, novoImaginario);
+    public Complexo subtracao(Complexo outro) {
+        return new Complexo(this.real - outro.real, this.imaginario - outro.imaginario);
     }
 
     public double modulo() {
-        return Math.sqrt(this.real * this.real + this.imaginario * this.imaginario);
+        return Math.sqrt(Math.pow(this.real, 2) + Math.pow(this.imaginario, 2));
+    }
+
+    public double getReal() {
+        return this.real;
+    }
+
+    public double getImaginario() {
+        return this.imaginario;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + this.real + ") + (" + this.imaginario + ")i";
     }
 }
